@@ -50,7 +50,7 @@ export const movies: Movie[] = [
     rating: '5.6',
     duration: '1h 50m',
     genre: ['horror', 'Adventure', 'mystery'],
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+    videoUrl: 'https://embed.vidsrc.pk/movie/tt10160976',
     type: 'movie'
   },
   {
