@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Search, Home, Film, Tv, Star, Plus, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import fire5Logo from '@/assets/fire5-logo.png';
+import fire5Logo from '@/assets/fire5-logo-red.png';
+import cloudflareIcon from '@/assets/cloudflare-logo.png';
 import profileIcon from '@/assets/profile-icon.png';
 
 interface NavbarProps {
@@ -33,13 +34,19 @@ export const Navbar = ({ onSearch, activeTab, onTabChange }: NavbarProps) => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
       <div className="flex items-center justify-between px-6 py-3">
-        {/* Logo */}
+        {/* Logo and Cloudflare Info */}
         <div className="flex items-center space-x-8">
-          <img 
-            src={fire5Logo} 
-            alt="FIRE5" 
-            className="h-8 w-auto" 
-          />
+          <div className="flex items-center space-x-4">
+            <img 
+              src={fire5Logo} 
+              alt="FIRE5" 
+              className="h-8 w-auto" 
+            />
+            <div className="hidden lg:flex items-center space-x-2 text-xs text-muted-foreground bg-card/50 px-3 py-1 rounded-full border border-border">
+              <img src={cloudflareIcon} alt="Cloudflare" className="h-4 w-auto" />
+              <span>Ultra-fast streaming with Cloudflare VPN</span>
+            </div>
+          </div>
           
           {/* Navigation Items */}
           <div className="hidden md:flex items-center space-x-6">
