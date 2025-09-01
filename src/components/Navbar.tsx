@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Search, Home, Film, Tv, Star, Plus, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import disneyLogo from '@/assets/disney-logo.png';
+import fire5Logo from '@/assets/fire5-logo.png';
 import profileIcon from '@/assets/profile-icon.png';
 
 interface NavbarProps {
@@ -35,7 +35,11 @@ export const Navbar = ({ onSearch, activeTab, onTabChange }: NavbarProps) => {
       <div className="flex items-center justify-between px-6 py-3">
         {/* Logo */}
         <div className="flex items-center space-x-8">
-          <img src={disneyLogo} alt="Disney+" className="h-10 w-auto" />
+          <img 
+            src={fire5Logo} 
+            alt="FIRE5" 
+            className="h-8 w-auto" 
+          />
           
           {/* Navigation Items */}
           <div className="hidden md:flex items-center space-x-6">

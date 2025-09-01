@@ -23,6 +23,8 @@ export const VideoPlayer = ({ content, onClose }: VideoPlayerProps) => {
     ? (content as any).videoUrl 
     : (content as any).episodes[0]?.videoUrl;
 
+  const isEmbedUrl = videoUrl && (videoUrl.includes('embed') || videoUrl.includes('vidsrc') || videoUrl.includes('iframe'));
+
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -121,12 +123,23 @@ export const VideoPlayer = ({ content, onClose }: VideoPlayerProps) => {
         onMouseLeave={() => isPlaying && setShowControls(false)}
       >
         {/* Video Element */}
-        <video
-          ref={videoRef}
-          src={videoUrl}
-          className="w-full h-full object-contain"
-          onClick={togglePlay}
-        />
+        {isEmbedUrl ? (
+          <iframe
+            src={videoUrl}
+            className="w-full h-full"
+            frameBorder="0"
+            allowFullScreen
+            allow="autoplay; fullscreen"
+          />
+        ) : (
+          <video
+            ref={videoRef}
+            src={videoUrl}
+            className="w-full h-full object-contain"
+            onClick={togglePlay}
+            autoPlay
+          />
+        )}
 
         {/* Loading/Play Overlay */}
         {!isPlaying && (
