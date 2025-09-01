@@ -126,10 +126,11 @@ export const VideoPlayer = ({ content, onClose }: VideoPlayerProps) => {
         {isEmbedUrl ? (
           <iframe
             src={videoUrl}
-            className="w-full h-full"
+            className="w-full h-full border-0"
             frameBorder="0"
             allowFullScreen
-            allow="autoplay; fullscreen"
+            allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer"
+            sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation-by-user-activation"
           />
         ) : (
           <video
