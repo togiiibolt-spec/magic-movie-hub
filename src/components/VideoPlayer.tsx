@@ -142,8 +142,8 @@ export const VideoPlayer = ({ content, onClose }: VideoPlayerProps) => {
           />
         )}
 
-        {/* Loading/Play Overlay */}
-        {!isPlaying && (
+        {/* Loading/Play Overlay - only for non-embed videos */}
+        {!isEmbedUrl && !isPlaying && (
           <div className="absolute inset-0 flex items-center justify-center bg-black/50">
             <Button
               size="lg"
@@ -155,108 +155,124 @@ export const VideoPlayer = ({ content, onClose }: VideoPlayerProps) => {
           </div>
         )}
 
-        {/* Controls */}
-        <div className={`absolute inset-0 transition-opacity duration-300 ${
-          showControls ? 'opacity-100' : 'opacity-0'
-        }`}>
-          {/* Top Bar */}
-          <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/70 to-transparent p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <h1 className="text-2xl font-bold text-white">{content.title}</h1>
-                <p className="text-white/80 text-sm">
-                  {content.year} • {content.rating} • {content.genre.join(', ')}
-                </p>
-              </div>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={onClose}
-                className="text-white hover:bg-white/20"
-              >
-                <X className="h-6 w-6" />
-              </Button>
-            </div>
-          </div>
-
-          {/* Bottom Controls */}
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
-            {/* Progress Bar */}
-            <div className="mb-4">
-              <Slider
-                value={[currentTime]}
-                max={duration}
-                step={1}
-                onValueChange={handleTimeChange}
-                className="w-full"
-              />
-              <div className="flex justify-between text-white text-sm mt-2">
-                <span>{formatTime(currentTime)}</span>
-                <span>{formatTime(duration)}</span>
+        {/* Controls - only for non-embed videos */}
+        {!isEmbedUrl && (
+          <div className={`absolute inset-0 transition-opacity duration-300 ${
+            showControls ? 'opacity-100' : 'opacity-0'
+          }`}>
+            {/* Top Bar */}
+            <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/70 to-transparent p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h1 className="text-2xl font-bold text-white">{content.title}</h1>
+                  <p className="text-white/80 text-sm">
+                    {content.year} • {content.rating} • {content.genre.join(', ')}
+                  </p>
+                </div>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={onClose}
+                  className="text-white hover:bg-white/20"
+                >
+                  <X className="h-6 w-6" />
+                </Button>
               </div>
             </div>
 
-            {/* Control Buttons */}
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-4">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => skipTime(-10)}
-                  className="text-white hover:bg-white/20"
-                >
-                  <SkipBack className="h-5 w-5" />
-                </Button>
-
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={togglePlay}
-                  className="text-white hover:bg-white/20"
-                >
-                  {isPlaying ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6 fill-current" />}
-                </Button>
-
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => skipTime(10)}
-                  className="text-white hover:bg-white/20"
-                >
-                  <SkipForward className="h-5 w-5" />
-                </Button>
-
-                <div className="flex items-center space-x-2">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={toggleMute}
-                    className="text-white hover:bg-white/20"
-                  >
-                    {isMuted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
-                  </Button>
-                  <div className="w-24">
-                    <Slider
-                      value={[isMuted ? 0 : volume]}
-                      max={1}
-                      step={0.1}
-                      onValueChange={handleVolumeChange}
-                    />
-                  </div>
+            {/* Bottom Controls */}
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+              {/* Progress Bar */}
+              <div className="mb-4">
+                <Slider
+                  value={[currentTime]}
+                  max={duration}
+                  step={1}
+                  onValueChange={handleTimeChange}
+                  className="w-full"
+                />
+                <div className="flex justify-between text-white text-sm mt-2">
+                  <span>{formatTime(currentTime)}</span>
+                  <span>{formatTime(duration)}</span>
                 </div>
               </div>
 
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={toggleFullscreen}
-                className="text-white hover:bg-white/20"
-              >
-                <Maximize className="h-5 w-5" />
-              </Button>
+              {/* Control Buttons */}
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-4">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => skipTime(-10)}
+                    className="text-white hover:bg-white/20"
+                  >
+                    <SkipBack className="h-5 w-5" />
+                  </Button>
+
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={togglePlay}
+                    className="text-white hover:bg-white/20"
+                  >
+                    {isPlaying ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6 fill-current" />}
+                  </Button>
+
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => skipTime(10)}
+                    className="text-white hover:bg-white/20"
+                  >
+                    <SkipForward className="h-5 w-5" />
+                  </Button>
+
+                  <div className="flex items-center space-x-2">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={toggleMute}
+                      className="text-white hover:bg-white/20"
+                    >
+                      {isMuted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
+                    </Button>
+                    <div className="w-24">
+                      <Slider
+                        value={[isMuted ? 0 : volume]}
+                        max={1}
+                        step={0.1}
+                        onValueChange={handleVolumeChange}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={toggleFullscreen}
+                  className="text-white hover:bg-white/20"
+                >
+                  <Maximize className="h-5 w-5" />
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
+        )}
+
+        {/* Close button for embed videos */}
+        {isEmbedUrl && (
+          <div className="absolute top-4 right-4 z-10">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={onClose}
+              className="text-white hover:bg-white/20 bg-black/50"
+            >
+              <X className="h-6 w-6" />
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );
