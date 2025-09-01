@@ -41,16 +41,16 @@ export type Content = Movie | Series;
 
 export const movies: Movie[] = [
   {
-    id: 'frozen2',
-    title: 'Frozen II',
-    description: 'Anna, Elsa, Kristoff, Olaf and Sven leave Arendelle to travel to an ancient, autumn-bound forest of an enchanted land.',
-    poster: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=600&fit=crop',
-    backdrop: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&h=1080&fit=crop',
-    year: 2019,
-    rating: 'PG',
-    duration: '1h 43m',
-    genre: ['Animation', 'Adventure', 'Comedy'],
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+    id: 'The Nun II',
+    title: 'The Nun II',
+    description: 'a 2023 supernatural horror film and the eighth installment in The Conjuring Universe, following Sister Irene as she once again confronts the demonic nun Valak.',
+    poster: 'https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/8940b40c-9e62-45e1-af18-efcf774e1a21/f81c2ff0feb45027d6b1d46516ed0520a90fdc7d.jpg?host=wbd-images.prod-vod.h264.io&partner=beamcom&w=500',
+    backdrop: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPqwLU_NGEWNDeem_Fhl80GvRPQvpsLQYii_EoyZqPXcReCC6uMtCqaoklT4YgpbbNmqg&usqp=CAU',
+    year: 2023,
+    rating: '5.6',
+    duration: '1h 50m',
+    genre: ['horror', 'Adventure', 'mystery'],
+    videoUrl: 'https://embed.vidsrc.pk/movie/tt10160976',
     type: 'movie'
   },
   {
