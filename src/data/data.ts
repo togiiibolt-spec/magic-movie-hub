@@ -148,7 +148,7 @@ export const series: Series[] = [
         duration: '30m',
         episodeNumber: 1,
         seasonNumber: 1,
-        videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4'
+        videoUrl: 'https://play.zephyrflick.top/video/ec4de54f2f3afa14175e5eabfc16ce1f'
       }
     ],
     type: 'series'
