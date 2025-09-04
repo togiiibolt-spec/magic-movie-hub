@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Search, Home, Film, Tv, Star, Plus, User } from 'lucide-react';
+import { Search, Home, Film, Tv, Star, Plus, User, Music, Bookmark } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import fire5Logo from '@/assets/fire5-logo-red.png';
@@ -19,7 +19,8 @@ export const Navbar = ({ onSearch, activeTab, onTabChange }: NavbarProps) => {
   const navItems = [
     { id: 'home', icon: Home, label: 'Home' },
     { id: 'search', icon: Search, label: 'Search' },
-    { id: 'watchlist', icon: Plus, label: 'Watchlist' },
+    { id: 'music', icon: Music, label: 'Music' },
+    { id: 'watchlist', icon: Bookmark, label: 'Watchlist' },
     { id: 'originals', icon: Star, label: 'Originals' },
     { id: 'movies', icon: Film, label: 'Movies' },
     { id: 'series', icon: Tv, label: 'Series' },

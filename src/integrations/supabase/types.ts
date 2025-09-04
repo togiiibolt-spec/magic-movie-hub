@@ -14,7 +14,125 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      music: {
+        Row: {
+          album: string | null
+          artist: string
+          audio_url: string | null
+          cover_image: string | null
+          created_at: string | null
+          duration_seconds: number | null
+          genre: string | null
+          id: string
+          title: string
+          year: number | null
+        }
+        Insert: {
+          album?: string | null
+          artist: string
+          audio_url?: string | null
+          cover_image?: string | null
+          created_at?: string | null
+          duration_seconds?: number | null
+          genre?: string | null
+          id?: string
+          title: string
+          year?: number | null
+        }
+        Update: {
+          album?: string | null
+          artist?: string
+          audio_url?: string | null
+          cover_image?: string | null
+          created_at?: string | null
+          duration_seconds?: number | null
+          genre?: string | null
+          id?: string
+          title?: string
+          year?: number | null
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string | null
+          id: string
+          is_main: boolean | null
+          name: string
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string | null
+          id?: string
+          is_main?: boolean | null
+          name: string
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string | null
+          id?: string
+          is_main?: boolean | null
+          name?: string
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      watch_history: {
+        Row: {
+          content_id: string
+          content_type: string
+          created_at: string | null
+          episode_id: string | null
+          episode_number: number | null
+          id: string
+          last_watched_at: string | null
+          profile_id: string
+          progress_seconds: number | null
+          season_number: number | null
+          total_duration_seconds: number | null
+        }
+        Insert: {
+          content_id: string
+          content_type: string
+          created_at?: string | null
+          episode_id?: string | null
+          episode_number?: number | null
+          id?: string
+          last_watched_at?: string | null
+          profile_id: string
+          progress_seconds?: number | null
+          season_number?: number | null
+          total_duration_seconds?: number | null
+        }
+        Update: {
+          content_id?: string
+          content_type?: string
+          created_at?: string | null
+          episode_id?: string | null
+          episode_number?: number | null
+          id?: string
+          last_watched_at?: string | null
+          profile_id?: string
+          progress_seconds?: number | null
+          season_number?: number | null
+          total_duration_seconds?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "watch_history_profile_id_fkey"
+            columns: ["profile_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
