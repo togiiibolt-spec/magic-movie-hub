@@ -96,25 +96,25 @@ export const movies: Movie[] = [
 
 export const series: Series[] = [
   {
-    id: 'mandalorian',
-    title: 'The Mandalorian',
-    description: 'The travels of a lone bounty hunter in the outer reaches of the galaxy, far from the authority of the New Republic.',
-    poster: 'https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=400&h=600&fit=crop',
-    backdrop: 'https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=1920&h=1080&fit=crop',
-    year: 2019,
-    rating: 'TV-14',
-    genre: ['Action', 'Adventure', 'Sci-Fi'],
+    id: 'Solo Leveling [HINDI]',
+    title: 'Solo Leveling [HINDI]',
+    description: 'introduces a world where gates open, connecting Earth to monster-filled dimensions, and some humans gain magical powers to become "Hunters".',
+    poster: 'https://resizing.flixster.com/WvUR0LcCwPkfo07dl1CChnL1f6o=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvMzRlNmFmN2MtNjA2Mi00MTUwLTg2MGYtOGZlN2M5OGRjZWUzLnBuZw==',
+    backdrop: 'https://m.media-amazon.com/images/S/pv-target-images/82d449a8fb2604a42c68376608c999216302fedb61011888f71c4f2093e16148.jpg',
+    year: 2024,
+    rating: '8.6',
+    genre: ['Action', 'Adventure', 'Anime'],
     seasons: 3,
     episodes: [
       {
-        id: 'mando-s1e1',
-        title: 'Chapter 1: The Mandalorian',
-        description: 'A Mandalorian bounty hunter tracks a target for a well-paying client.',
-        thumbnail: 'https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=400&h=225&fit=crop',
-        duration: '39m',
+        id: 'Solo Leveling: 1x1 Im Used to It',
+        title: 'Solo Leveling S1 EP1: I m Used to It',
+        description: 'Meet hardworking E-Rank hunter Sung Jinwoo and his allies as they fight magic beasts from another dimension.',
+        thumbnail: 'https://m.media-amazon.com/images/S/pv-target-images/82d449a8fb2604a42c68376608c999216302fedb61011888f71c4f2093e16148.jpg',
+        duration: '24m',
         episodeNumber: 1,
         seasonNumber: 1,
-        videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+        videoUrl: 'https://play.zephyrflick.top/video/ec4de54f2f3afa14175e5eabfc16ce1f',
       },
       {
         id: 'mando-s1e2',
