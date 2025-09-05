@@ -115,6 +115,20 @@ export const movies: Movie[] = [
     type: 'movie'
   },
   {
+    id: 'Avengers: Endgame',
+    title: 'Avengers: Endgame',
+    description: 'After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos\' actions and restore balance to the universe.',
+    poster: 'https://upload.wikimedia.org/wikipedia/en/0/0d/Avengers_Endgame_poster.jpg',
+    backdrop: 'https://kneelbeforeblog.s3.eu-west-1.amazonaws.com/wp-content/uploads/2019/04/25033528/AvengersEG2D_banner-Cropped.jpg',
+    year: 2019,
+    rating: '8.4',
+    duration: '3h 1m',
+    genre: ['Action', 'Adventure', 'SuperHero'],
+    videoUrl: 'https://embed.vidsrc.pk/movie/tt4154796',
+    type: 'movie'
+  },
+  
+  {
     id: 'blackpanther',
     title: 'Black Panther',
     description: 'T\'Challa, heir to the hidden but advanced kingdom of Wakanda, must step forward to lead his people into a new future.',
