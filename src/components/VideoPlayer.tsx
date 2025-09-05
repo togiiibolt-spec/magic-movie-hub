@@ -122,146 +122,17 @@ export const VideoPlayer = ({ content, onClose }: VideoPlayerProps) => {
         onMouseMove={() => setShowControls(true)}
         onMouseLeave={() => isPlaying && setShowControls(false)}
       >
-        {/* Video Element */}
-        {isEmbedUrl ? (
-          <iframe
-            src={videoUrl}
-            className="w-full h-full border-0"
-            frameBorder="0"
-            allowFullScreen
-            allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer"
-            sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation-by-user-activation"
-          />
-        ) : (
-          <video
-            ref={videoRef}
-            src={videoUrl}
-            className="w-full h-full object-contain"
-            onClick={togglePlay}
-            autoPlay
-            controls={false}
-          />
-        )}
+        {/* Video Element - Always Fullscreen */}
+        <iframe
+          src={videoUrl}
+          className="w-full h-full border-0"
+          frameBorder="0"
+          allowFullScreen
+          allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer"
+          sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation-by-user-activation"
+        />
 
-        {/* Loading/Play Overlay - only for non-embed videos */}
-        {!isEmbedUrl && !isPlaying && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black/50">
-            <Button
-              size="lg"
-              onClick={togglePlay}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground w-20 h-20 rounded-full"
-            >
-              <Play className="h-8 w-8 fill-current" />
-            </Button>
-          </div>
-        )}
-
-        {/* Controls - only for non-embed videos */}
-        {!isEmbedUrl && (
-          <div className={`absolute inset-0 transition-opacity duration-300 ${
-            showControls ? 'opacity-100' : 'opacity-0'
-          }`}>
-            {/* Top Bar */}
-            <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/70 to-transparent p-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h1 className="text-2xl font-bold text-white">{content.title}</h1>
-                  <p className="text-white/80 text-sm">
-                    {content.year} • {content.rating} • {content.genre.join(', ')}
-                  </p>
-                </div>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={onClose}
-                  className="text-white hover:bg-white/20"
-                >
-                  <X className="h-6 w-6" />
-                </Button>
-              </div>
-            </div>
-
-            {/* Bottom Controls */}
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
-              {/* Progress Bar */}
-              <div className="mb-4">
-                <Slider
-                  value={[currentTime]}
-                  max={duration}
-                  step={1}
-                  onValueChange={handleTimeChange}
-                  className="w-full"
-                />
-                <div className="flex justify-between text-white text-sm mt-2">
-                  <span>{formatTime(currentTime)}</span>
-                  <span>{formatTime(duration)}</span>
-                </div>
-              </div>
-
-              {/* Control Buttons */}
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-4">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => skipTime(-10)}
-                    className="text-white hover:bg-white/20"
-                  >
-                    <SkipBack className="h-5 w-5" />
-                  </Button>
-
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={togglePlay}
-                    className="text-white hover:bg-white/20"
-                  >
-                    {isPlaying ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6 fill-current" />}
-                  </Button>
-
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => skipTime(10)}
-                    className="text-white hover:bg-white/20"
-                  >
-                    <SkipForward className="h-5 w-5" />
-                  </Button>
-
-                  <div className="flex items-center space-x-2">
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={toggleMute}
-                      className="text-white hover:bg-white/20"
-                    >
-                      {isMuted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
-                    </Button>
-                    <div className="w-24">
-                      <Slider
-                        value={[isMuted ? 0 : volume]}
-                        max={1}
-                        step={0.1}
-                        onValueChange={handleVolumeChange}
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={toggleFullscreen}
-                  className="text-white hover:bg-white/20"
-                >
-                  <Maximize className="h-5 w-5" />
-                </Button>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Close button for embed videos */}
+        {/* Close button - Always visible */}
         <div className="absolute top-4 right-4 z-10">
           <Button
             variant="ghost"
