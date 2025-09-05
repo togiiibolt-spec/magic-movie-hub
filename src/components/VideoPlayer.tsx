@@ -139,6 +139,7 @@ export const VideoPlayer = ({ content, onClose }: VideoPlayerProps) => {
             className="w-full h-full object-contain"
             onClick={togglePlay}
             autoPlay
+            controls={false}
           />
         )}
 
@@ -261,18 +262,16 @@ export const VideoPlayer = ({ content, onClose }: VideoPlayerProps) => {
         )}
 
         {/* Close button for embed videos */}
-        {isEmbedUrl && (
-          <div className="absolute top-4 right-4 z-10">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={onClose}
-              className="text-white hover:bg-white/20 bg-black/50"
-            >
-              <X className="h-6 w-6" />
-            </Button>
-          </div>
-        )}
+        <div className="absolute top-4 right-4 z-10">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={onClose}
+            className="text-white hover:bg-white/20 bg-black/50"
+          >
+            <X className="h-6 w-6" />
+          </Button>
+        </div>
       </div>
     </div>
   );

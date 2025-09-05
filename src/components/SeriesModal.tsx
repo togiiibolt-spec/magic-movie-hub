@@ -14,7 +14,16 @@ interface SeriesModalProps {
 export const SeriesModal = ({ series, onClose, onPlay }: SeriesModalProps) => {
   const [selectedSeason, setSelectedSeason] = useState(1);
   
-  const seasonEpisodes = series.episodes.filter(ep => ep.seasonNumber === selectedSeason);
+  // Group episodes by season
+  const episodesBySeason = series.episodes.reduce((acc, episode) => {
+    if (!acc[episode.seasonNumber]) {
+      acc[episode.seasonNumber] = [];
+    }
+    acc[episode.seasonNumber].push(episode);
+    return acc;
+  }, {} as Record<number, Episode[]>);
+  
+  const seasonEpisodes = episodesBySeason[selectedSeason] || [];
   const availableSeasons = [...new Set(series.episodes.map(ep => ep.seasonNumber))].sort();
 
   return (
@@ -119,7 +128,7 @@ export const SeriesModal = ({ series, onClose, onPlay }: SeriesModalProps) => {
                 {availableSeasons.map((season) => (
                   <TabsContent key={season} value={season.toString()}>
                     <div className="space-y-4">
-                      {seasonEpisodes.map((episode) => (
+                      {(episodesBySeason[season] || []).map((episode) => (
                         <EpisodeCard
                           key={episode.id}
                           episode={episode}

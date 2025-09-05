@@ -39,6 +39,54 @@ export interface Series {
 
 export type Content = Movie | Series;
 
+export interface Music {
+  id: string;
+  title: string;
+  artist: string;
+  album: string;
+  cover: string;
+  audioUrl: string;
+  duration: string;
+  year: number;
+  genre: string;
+}
+
+export const music: Music[] = [
+  {
+    id: 'stay-alive',
+    title: 'Stay Alive',
+    artist: 'José González',
+    album: 'The Secret of Us',
+    cover: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop',
+    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+    duration: '3:45',
+    year: 2023,
+    genre: 'Indie Folk'
+  },
+  {
+    id: 'blinding-lights',
+    title: 'Blinding Lights',
+    artist: 'The Weeknd',
+    album: 'After Hours',
+    cover: 'https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=400&h=400&fit=crop',
+    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
+    duration: '3:20',
+    year: 2020,
+    genre: 'Synthpop'
+  },
+  {
+    id: 'shape-of-you',
+    title: 'Shape of You',
+    artist: 'Ed Sheeran',
+    album: '÷ (Divide)',
+    cover: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop',
+    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
+    duration: '3:53',
+    year: 2017,
+    genre: 'Pop'
+  }
+];
+
 export const movies: Movie[] = [
   {
     id: 'The Nun II',
@@ -94,21 +142,21 @@ export const movies: Movie[] = [
   }
 ];
 
-export const series: Series[] = [
+export const animeSeries: Series[] = [
   {
-    id: 'Solo Leveling [HINDI]',
-    title: 'Solo Leveling [HINDI]',
+    id: 'solo-leveling',
+    title: 'Solo Leveling',
     description: 'introduces a world where gates open, connecting Earth to monster-filled dimensions, and some humans gain magical powers to become "Hunters".',
     poster: 'https://resizing.flixster.com/WvUR0LcCwPkfo07dl1CChnL1f6o=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvMzRlNmFmN2MtNjA2Mi00MTUwLTg2MGYtOGZlN2M5OGRjZWUzLnBuZw==',
     backdrop: 'https://m.media-amazon.com/images/S/pv-target-images/82d449a8fb2604a42c68376608c999216302fedb61011888f71c4f2093e16148.jpg',
     year: 2024,
     rating: '8.6',
     genre: ['Action', 'Adventure', 'Anime'],
-    seasons: 3,
+    seasons: 2,
     episodes: [
       {
-        id: 'Solo Leveling: 1x1 Im Used to It',
-        title: 'Solo Leveling S1 EP1: I m Used to It',
+        id: 'solo-leveling-s1e1',
+        title: 'I\'m Used to It',
         description: 'Meet hardworking E-Rank hunter Sung Jinwoo and his allies as they fight magic beasts from another dimension.',
         thumbnail: 'https://m.media-amazon.com/images/S/pv-target-images/82d449a8fb2604a42c68376608c999216302fedb61011888f71c4f2093e16148.jpg',
         duration: '24m',
@@ -117,67 +165,400 @@ export const series: Series[] = [
         videoUrl: 'https://play.zephyrflick.top/video/ec4de54f2f3afa14175e5eabfc16ce1f',
       },
       {
-        id: 'mando-s1e2',
-        title: 'Chapter 2: The Child',
-        description: 'The Mandalorian and his allies confront their enemies.',
-        thumbnail: 'https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=400&h=225&fit=crop',
-        duration: '32m',
+        id: 'solo-leveling-s1e2',
+        title: 'If I Don\'t Kill, I\'ll Be Killed',
+        description: 'Jinwoo discovers the System and begins his journey to becoming stronger.',
+        thumbnail: 'https://m.media-amazon.com/images/S/pv-target-images/82d449a8fb2604a42c68376608c999216302fedb61011888f71c4f2093e16148.jpg',
+        duration: '24m',
         episodeNumber: 2,
         seasonNumber: 1,
-        videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
+        videoUrl: 'https://embed.vidsrc.pk/series/solo-leveling/1/2',
+      },
+      {
+        id: 'solo-leveling-s2e1',
+        title: 'Level Up',
+        description: 'Season 2 begins with Jinwoo facing new challenges.',
+        thumbnail: 'https://m.media-amazon.com/images/S/pv-target-images/82d449a8fb2604a42c68376608c999216302fedb61011888f71c4f2093e16148.jpg',
+        duration: '24m',
+        episodeNumber: 1,
+        seasonNumber: 2,
+        videoUrl: 'https://embed.vidsrc.pk/series/solo-leveling/2/1',
       }
     ],
     type: 'series'
   },
   {
-    id: 'wandavision',
-    title: 'WandaVision',
-    description: 'Blends the style of classic sitcoms with the MCU, in which Wanda Maximoff and Vision live in a suburban town.',
+    id: 'demon-slayer',
+    title: 'Demon Slayer: Kimetsu no Yaiba',
+    description: 'A young boy whose family was killed by demons becomes a demon slayer to avenge his family and cure his sister.',
     poster: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=600&fit=crop',
     backdrop: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&h=1080&fit=crop',
-    year: 2021,
-    rating: 'TV-PG',
-    genre: ['Action', 'Comedy', 'Drama'],
-    seasons: 1,
+    year: 2019,
+    rating: '8.7',
+    genre: ['Action', 'Adventure', 'Anime'],
+    seasons: 4,
     episodes: [
       {
-        id: 'wanda-s1e1',
-        title: 'Filmed Before a Live Studio Audience',
-        description: 'Wanda and Vision struggle to conceal their powers during dinner with Vision\'s boss.',
+        id: 'demon-slayer-s1e1',
+        title: 'Cruelty',
+        description: 'Tanjiro finds his family slaughtered and his sister Nezuko turned into a demon.',
         thumbnail: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=225&fit=crop',
-        duration: '30m',
+        duration: '24m',
         episodeNumber: 1,
         seasonNumber: 1,
-        videoUrl: 'https://play.zephyrflick.top/video/ec4de54f2f3afa14175e5eabfc16ce1f'
+        videoUrl: 'https://embed.vidsrc.pk/series/demon-slayer-kimetsu-no-yaiba/1/1'
+      },
+      {
+        id: 'demon-slayer-s2e1',
+        title: 'Sound Hashira Tengen Uzui',
+        description: 'Entertainment District Arc begins.',
+        thumbnail: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=225&fit=crop',
+        duration: '44m',
+        episodeNumber: 1,
+        seasonNumber: 2,
+        videoUrl: 'https://embed.vidsrc.pk/series/demon-slayer-kimetsu-no-yaiba/2/1'
+      },
+      {
+        id: 'demon-slayer-s3e1',
+        title: 'Someone\'s Dream',
+        description: 'Swordsmith Village Arc begins.',
+        thumbnail: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=225&fit=crop',
+        duration: '44m',
+        episodeNumber: 1,
+        seasonNumber: 3,
+        videoUrl: 'https://embed.vidsrc.pk/series/demon-slayer-kimetsu-no-yaiba/3/1'
       }
     ],
     type: 'series'
   },
   {
-    id: 'loki',
-    title: 'Loki',
-    description: 'The mercurial villain Loki resumes his role as the God of Mischief following the events of Avengers: Endgame.',
+    id: 'attack-on-titan',
+    title: 'Attack on Titan',
+    description: 'Humanity fights for survival against giant humanoid Titans behind massive walls.',
     poster: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=600&fit=crop',
     backdrop: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=1920&h=1080&fit=crop',
-    year: 2021,
-    rating: 'TV-14',
-    genre: ['Action', 'Adventure', 'Fantasy'],
+    year: 2013,
+    rating: '9.0',
+    genre: ['Action', 'Drama', 'Anime'],
+    seasons: 4,
+    episodes: [
+      {
+        id: 'aot-s1e1',
+        title: 'To You, in 2000 Years',
+        description: 'Eren witnesses the fall of Wall Maria and the death of his mother.',
+        thumbnail: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=225&fit=crop',
+        duration: '24m',
+        episodeNumber: 1,
+        seasonNumber: 1,
+        videoUrl: 'https://embed.vidsrc.pk/series/attack-on-titan/1/1'
+      },
+      {
+        id: 'aot-s4e1',
+        title: 'The Other Side of the Ocean',
+        description: 'Final season begins with a new perspective.',
+        thumbnail: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=225&fit=crop',
+        duration: '23m',
+        episodeNumber: 1,
+        seasonNumber: 4,
+        videoUrl: 'https://embed.vidsrc.pk/series/attack-on-titan/4/1'
+      }
+    ],
+    type: 'series'
+  },
+  {
+    id: 'one-piece',
+    title: 'One Piece',
+    description: 'Monkey D. Luffy sets off on an adventure with his pirate crew in search of the greatest treasure.',
+    poster: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=600&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&h=1080&fit=crop',
+    year: 1999,
+    rating: '9.0',
+    genre: ['Action', 'Adventure', 'Anime'],
+    seasons: 20,
+    episodes: [
+      {
+        id: 'one-piece-s1e1',
+        title: 'I\'m Luffy! The Man Who\'s Gonna Be King of the Pirates!',
+        description: 'Luffy begins his journey to become the Pirate King.',
+        thumbnail: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=225&fit=crop',
+        duration: '24m',
+        episodeNumber: 1,
+        seasonNumber: 1,
+        videoUrl: 'https://embed.vidsrc.pk/series/one-piece/1/1'
+      }
+    ],
+    type: 'series'
+  },
+  {
+    id: 'naruto',
+    title: 'Naruto',
+    description: 'A young ninja who seeks recognition from his peers and dreams of becoming the Hokage.',
+    poster: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=600&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=1920&h=1080&fit=crop',
+    year: 2002,
+    rating: '8.3',
+    genre: ['Action', 'Adventure', 'Anime'],
+    seasons: 9,
+    episodes: [
+      {
+        id: 'naruto-s1e1',
+        title: 'Enter: Naruto Uzumaki!',
+        description: 'Naruto Uzumaki fails the graduation test from the Ninja Academy.',
+        thumbnail: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=225&fit=crop',
+        duration: '23m',
+        episodeNumber: 1,
+        seasonNumber: 1,
+        videoUrl: 'https://embed.vidsrc.pk/series/naruto/1/1'
+      }
+    ],
+    type: 'series'
+  },
+  {
+    id: 'jujutsu-kaisen',
+    title: 'Jujutsu Kaisen',
+    description: 'A student joins a secret organization of sorcerers to kill cursed demons.',
+    poster: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=600&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&h=1080&fit=crop',
+    year: 2020,
+    rating: '8.6',
+    genre: ['Action', 'Supernatural', 'Anime'],
     seasons: 2,
     episodes: [
       {
-        id: 'loki-s1e1',
-        title: 'Glorious Purpose',
-        description: 'After stealing the Tesseract in Avengers: Endgame, Loki lands before the Time Variance Authority.',
-        thumbnail: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=225&fit=crop',
-        duration: '51m',
+        id: 'jjk-s1e1',
+        title: 'Ryomen Sukuna',
+        description: 'Yuji Itadori joins the Occult Research Club.',
+        thumbnail: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=225&fit=crop',
+        duration: '24m',
         episodeNumber: 1,
         seasonNumber: 1,
-        videoUrl: 'https://play.zephyrflick.top/video/ec4de54f2f3afa14175e5eabfc16ce1f'
+        videoUrl: 'https://embed.vidsrc.pk/series/jujutsu-kaisen/1/1'
+      }
+    ],
+    type: 'series'
+  },
+  {
+    id: 'my-hero-academia',
+    title: 'My Hero Academia',
+    description: 'A superhero-loving boy enrolls in a prestigious hero academy.',
+    poster: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=600&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=1920&h=1080&fit=crop',
+    year: 2016,
+    rating: '8.7',
+    genre: ['Action', 'School', 'Anime'],
+    seasons: 7,
+    episodes: [
+      {
+        id: 'mha-s1e1',
+        title: 'Izuku Midoriya: Origin',
+        description: 'Deku dreams of becoming a hero despite being born without powers.',
+        thumbnail: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=225&fit=crop',
+        duration: '24m',
+        episodeNumber: 1,
+        seasonNumber: 1,
+        videoUrl: 'https://embed.vidsrc.pk/series/my-hero-academia/1/1'
+      }
+    ],
+    type: 'series'
+  },
+  {
+    id: 'death-note',
+    title: 'Death Note',
+    description: 'A high school student discovers a supernatural notebook.',
+    poster: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=600&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&h=1080&fit=crop',
+    year: 2006,
+    rating: '9.0',
+    genre: ['Thriller', 'Supernatural', 'Anime'],
+    seasons: 1,
+    episodes: [
+      {
+        id: 'dn-s1e1',
+        title: 'Rebirth',
+        description: 'Light Yagami finds the Death Note.',
+        thumbnail: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=225&fit=crop',
+        duration: '23m',
+        episodeNumber: 1,
+        seasonNumber: 1,
+        videoUrl: 'https://embed.vidsrc.pk/series/death-note/1/1'
+      }
+    ],
+    type: 'series'
+  },
+  {
+    id: 'fullmetal-alchemist',
+    title: 'Fullmetal Alchemist: Brotherhood',
+    description: 'Two brothers search for the Philosopher\'s Stone to restore their bodies.',
+    poster: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=600&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=1920&h=1080&fit=crop',
+    year: 2009,
+    rating: '9.1',
+    genre: ['Adventure', 'Drama', 'Anime'],
+    seasons: 1,
+    episodes: [
+      {
+        id: 'fma-s1e1',
+        title: 'Fullmetal Alchemist',
+        description: 'The Elric brothers attempt human transmutation.',
+        thumbnail: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=225&fit=crop',
+        duration: '24m',
+        episodeNumber: 1,
+        seasonNumber: 1,
+        videoUrl: 'https://embed.vidsrc.pk/series/fullmetal-alchemist-brotherhood/1/1'
+      }
+    ],
+    type: 'series'
+  },
+  {
+    id: 'one-punch-man',
+    title: 'One Punch Man',
+    description: 'A superhero who can defeat any opponent with a single punch.',
+    poster: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=600&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&h=1080&fit=crop',
+    year: 2015,
+    rating: '8.8',
+    genre: ['Action', 'Comedy', 'Anime'],
+    seasons: 3,
+    episodes: [
+      {
+        id: 'opm-s1e1',
+        title: 'The Strongest Man',
+        description: 'Saitama faces the Subterranean King.',
+        thumbnail: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=225&fit=crop',
+        duration: '24m',
+        episodeNumber: 1,
+        seasonNumber: 1,
+        videoUrl: 'https://embed.vidsrc.pk/series/one-punch-man/1/1'
       }
     ],
     type: 'series'
   }
 ];
+
+export const regularSeries: Series[] = [
+  {
+    id: 'money-heist',
+    title: 'Money Heist',
+    description: 'An unusual group of robbers attempt to carry out the most perfect robbery in Spanish history.',
+    poster: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=600&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&h=1080&fit=crop',
+    year: 2017,
+    rating: '8.2',
+    genre: ['Action', 'Crime', 'Drama'],
+    seasons: 5,
+    episodes: [
+      {
+        id: 'money-heist-s1e1',
+        title: 'Do As Planned',
+        description: 'The Professor recruits a young female robber and seven other criminals for a grand heist.',
+        thumbnail: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=225&fit=crop',
+        duration: '47m',
+        episodeNumber: 1,
+        seasonNumber: 1,
+        videoUrl: 'https://embed.vidsrc.pk/series/money-heist/1/1'
+      }
+    ],
+    type: 'series'
+  },
+  {
+    id: 'breaking-bad',
+    title: 'Breaking Bad',
+    description: 'A high school chemistry teacher turned meth cook partners with a former student.',
+    poster: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=600&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=1920&h=1080&fit=crop',
+    year: 2008,
+    rating: '9.5',
+    genre: ['Crime', 'Drama', 'Thriller'],
+    seasons: 5,
+    episodes: [
+      {
+        id: 'breaking-bad-s1e1',
+        title: 'Pilot',
+        description: 'Walter White, a chemistry teacher, is diagnosed with cancer and turns to cooking meth.',
+        thumbnail: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=225&fit=crop',
+        duration: '58m',
+        episodeNumber: 1,
+        seasonNumber: 1,
+        videoUrl: 'https://embed.vidsrc.pk/series/breaking-bad/1/1'
+      }
+    ],
+    type: 'series'
+  },
+  {
+    id: 'stranger-things',
+    title: 'Stranger Things',
+    description: 'When a young boy vanishes, a small town uncovers a mystery involving secret experiments.',
+    poster: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=600&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&h=1080&fit=crop',
+    year: 2016,
+    rating: '8.7',
+    genre: ['Drama', 'Fantasy', 'Horror'],
+    seasons: 4,
+    episodes: [
+      {
+        id: 'stranger-things-s1e1',
+        title: 'The Vanishing of Will Byers',
+        description: 'Will Byers disappears while cycling home from a campaign night.',
+        thumbnail: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=225&fit=crop',
+        duration: '49m',
+        episodeNumber: 1,
+        seasonNumber: 1,
+        videoUrl: 'https://embed.vidsrc.pk/series/stranger-things/1/1'
+      }
+    ],
+    type: 'series'
+  },
+  {
+    id: 'the-crown',
+    title: 'The Crown',
+    description: 'Follows the political rivalries and romance of Queen Elizabeth II\'s reign.',
+    poster: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=600&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=1920&h=1080&fit=crop',
+    year: 2016,
+    rating: '8.7',
+    genre: ['Biography', 'Drama', 'History'],
+    seasons: 6,
+    episodes: [
+      {
+        id: 'the-crown-s1e1',
+        title: 'Wolferton Splash',
+        description: 'A young Princess Elizabeth marries Prince Philip.',
+        thumbnail: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=225&fit=crop',
+        duration: '57m',
+        episodeNumber: 1,
+        seasonNumber: 1,
+        videoUrl: 'https://embed.vidsrc.pk/series/the-crown/1/1'
+      }
+    ],
+    type: 'series'
+  },
+  {
+    id: 'game-of-thrones',
+    title: 'Game of Thrones',
+    description: 'Nine noble families fight for control over the lands of Westeros.',
+    poster: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=600&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&h=1080&fit=crop',
+    year: 2011,
+    rating: '9.3',
+    genre: ['Action', 'Adventure', 'Drama'],
+    seasons: 8,
+    episodes: [
+      {
+        id: 'got-s1e1',
+        title: 'Winter Is Coming',
+        description: 'Eddard Stark is torn between his family and an old friend.',
+        thumbnail: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=225&fit=crop',
+        duration: '62m',
+        episodeNumber: 1,
+        seasonNumber: 1,
+        videoUrl: 'https://embed.vidsrc.pk/series/game-of-thrones/1/1'
+      }
+    ],
+    type: 'series'
+  }
+];
+
+export const series: Series[] = [...animeSeries, ...regularSeries];
 
 export const allContent: Content[] = [...movies, ...series];
 

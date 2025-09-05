@@ -1,7 +1,10 @@
 import { useState } from 'react';
-import { Search, Home, Film, Tv, Star, Plus, User, Music, Bookmark } from 'lucide-react';
+import { Search, Home, Film, Tv, Star, Plus, User, Music, Bookmark, LogOut, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { useAuth } from '@/contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import fire5Logo from '@/assets/fire5-logo-red.png';
 import cloudflareIcon from '@/assets/cloudflare-logo.png';
 import profileIcon from '@/assets/profile-icon.png';
@@ -15,6 +18,10 @@ interface NavbarProps {
 export const Navbar = ({ onSearch, activeTab, onTabChange }: NavbarProps) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const { signOut } = useAuth();
+  const navigate = useNavigate();
+
+  const currentProfile = JSON.parse(localStorage.getItem('selectedProfile') || '{}');
 
   const navItems = [
     { id: 'home', icon: Home, label: 'Home' },
@@ -30,6 +37,16 @@ export const Navbar = ({ onSearch, activeTab, onTabChange }: NavbarProps) => {
     e.preventDefault();
     onSearch(searchQuery);
     setIsSearchOpen(false);
+  };
+
+  const handleSwitchProfile = () => {
+    navigate('/profiles');
+  };
+
+  const handleSignOut = async () => {
+    await signOut();
+    localStorage.removeItem('selectedProfile');
+    navigate('/auth');
   };
 
   return (
@@ -103,9 +120,41 @@ export const Navbar = ({ onSearch, activeTab, onTabChange }: NavbarProps) => {
           </Button>
 
           {/* Profile */}
-          <Button variant="ghost" size="sm" className="p-0">
-            <img src={profileIcon} alt="Profile" className="h-8 w-8 rounded-full" />
-          </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="sm" className="p-0">
+                <img 
+                  src={currentProfile.avatar_url || profileIcon} 
+                  alt="Profile" 
+                  className="h-8 w-8 rounded-full" 
+                />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-56">
+              <div className="flex items-center space-x-2 p-2">
+                <img 
+                  src={currentProfile.avatar_url || profileIcon} 
+                  alt="Profile" 
+                  className="h-8 w-8 rounded-full" 
+                />
+                <div className="flex flex-col space-y-1">
+                  <p className="text-sm font-medium">{currentProfile.name || 'User'}</p>
+                  {currentProfile.is_main && (
+                    <p className="text-xs text-muted-foreground">Main Profile</p>
+                  )}
+                </div>
+              </div>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem onClick={handleSwitchProfile}>
+                <Users className="mr-2 h-4 w-4" />
+                Switch Profile
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={handleSignOut}>
+                <LogOut className="mr-2 h-4 w-4" />
+                Sign Out
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
 
