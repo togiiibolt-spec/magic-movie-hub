@@ -2,15 +2,16 @@ import { useState, useRef, useEffect } from 'react';
 import { X, Play, Pause, Volume2, VolumeX, Maximize, SkipBack, SkipForward } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
-import { Content, Episode } from '@/data/data';
+import { Content, Episode, Series } from '@/data/data';
 
 interface VideoPlayerProps {
   content: Content;
   episode?: Episode;
   onClose: () => void;
+  onEpisodeChange?: (episode: Episode) => void;
 }
 
-export const VideoPlayer = ({ content, episode, onClose }: VideoPlayerProps) => {
+export const VideoPlayer = ({ content, episode, onClose, onEpisodeChange }: VideoPlayerProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -26,21 +27,40 @@ export const VideoPlayer = ({ content, episode, onClose }: VideoPlayerProps) => 
 
   const isEmbedUrl = videoUrl && (videoUrl.includes('embed') || videoUrl.includes('vidsrc') || videoUrl.includes('iframe'));
 
+  // Get current episode info and navigation
+  const currentSeries = content.type === 'series' ? content as Series : null;
+  const currentEpisode = episode || (currentSeries?.episodes[0]);
+  const currentEpisodeIndex = currentSeries ? currentSeries.episodes.findIndex(ep => ep.id === currentEpisode?.id) : -1;
+  const hasNextEpisode = currentSeries && currentEpisodeIndex < currentSeries.episodes.length - 1;
+  const hasPrevEpisode = currentSeries && currentEpisodeIndex > 0;
+  const nextEpisode = hasNextEpisode ? currentSeries.episodes[currentEpisodeIndex + 1] : null;
+  const prevEpisode = hasPrevEpisode ? currentSeries.episodes[currentEpisodeIndex - 1] : null;
+
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
     const updateTime = () => setCurrentTime(video.currentTime);
     const updateDuration = () => setDuration(video.duration);
+    const handleVideoEnd = () => {
+      // Auto-play next episode when current episode ends
+      if (hasNextEpisode && nextEpisode && onEpisodeChange) {
+        setTimeout(() => {
+          onEpisodeChange(nextEpisode);
+        }, 2000); // 2 second delay before auto-playing next episode
+      }
+    };
 
     video.addEventListener('timeupdate', updateTime);
     video.addEventListener('loadedmetadata', updateDuration);
+    video.addEventListener('ended', handleVideoEnd);
 
     return () => {
       video.removeEventListener('timeupdate', updateTime);
       video.removeEventListener('loadedmetadata', updateDuration);
+      video.removeEventListener('ended', handleVideoEnd);
     };
-  }, []);
+  }, [hasNextEpisode, nextEpisode, onEpisodeChange]);
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
@@ -144,6 +164,45 @@ export const VideoPlayer = ({ content, episode, onClose }: VideoPlayerProps) => 
             <X className="h-6 w-6" />
           </Button>
         </div>
+
+        {/* Episode Navigation - Only for series */}
+        {currentSeries && (
+          <>
+            {/* Episode Info */}
+            <div className="absolute top-4 left-4 z-10 bg-black/50 backdrop-blur-sm rounded-lg p-3">
+              <h3 className="text-white font-semibold text-lg">{currentSeries.title}</h3>
+              <p className="text-white/80 text-sm">
+                S{currentEpisode?.seasonNumber} E{currentEpisode?.episodeNumber}: {currentEpisode?.title}
+              </p>
+            </div>
+
+            {/* Navigation Buttons */}
+            <div className="absolute bottom-20 right-4 z-10 flex space-x-2">
+              {hasPrevEpisode && (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => prevEpisode && onEpisodeChange?.(prevEpisode)}
+                  className="text-white hover:bg-white/20 bg-black/50"
+                >
+                  <SkipBack className="h-5 w-5 mr-1" />
+                  Previous
+                </Button>
+              )}
+              {hasNextEpisode && (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => nextEpisode && onEpisodeChange?.(nextEpisode)}
+                  className="text-white hover:bg-white/20 bg-black/50"
+                >
+                  Next
+                  <SkipForward className="h-5 w-5 ml-1" />
+                </Button>
+              )}
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

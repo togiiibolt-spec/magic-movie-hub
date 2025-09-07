@@ -216,6 +216,10 @@ export default function Index() {
             setIsVideoPlayerOpen(false);
             setSelectedEpisode(undefined);
           }}
+          onEpisodeChange={(episode) => {
+            setSelectedEpisode(episode);
+            trackWatchHistory(selectedContent, episode);
+          }}
         />
       )}
 
