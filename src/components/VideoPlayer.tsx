@@ -2,14 +2,15 @@ import { useState, useRef, useEffect } from 'react';
 import { X, Play, Pause, Volume2, VolumeX, Maximize, SkipBack, SkipForward } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
-import { Content } from '@/data/data';
+import { Content, Episode } from '@/data/data';
 
 interface VideoPlayerProps {
   content: Content;
+  episode?: Episode;
   onClose: () => void;
 }
 
-export const VideoPlayer = ({ content, onClose }: VideoPlayerProps) => {
+export const VideoPlayer = ({ content, episode, onClose }: VideoPlayerProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -19,9 +20,9 @@ export const VideoPlayer = ({ content, onClose }: VideoPlayerProps) => {
   const [showControls, setShowControls] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
-  const videoUrl = content.type === 'movie' 
-    ? (content as any).videoUrl 
-    : (content as any).episodes[0]?.videoUrl;
+  const videoUrl = content.type === 'movie'
+    ? (content as any).videoUrl
+    : (episode as any)?.videoUrl || (content as any).episodes[0]?.videoUrl;
 
   const isEmbedUrl = videoUrl && (videoUrl.includes('embed') || videoUrl.includes('vidsrc') || videoUrl.includes('iframe'));
 

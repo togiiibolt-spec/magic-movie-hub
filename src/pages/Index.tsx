@@ -15,6 +15,7 @@ export default function Index() {
   const { user, loading } = useAuth();
   const navigate = useNavigate();
   const [selectedContent, setSelectedContent] = useState<Content | null>(null);
+  const [selectedEpisode, setSelectedEpisode] = useState<Episode | undefined>(undefined);
   const [isMovieModalOpen, setIsMovieModalOpen] = useState(false);
   const [isSeriesModalOpen, setIsSeriesModalOpen] = useState(false);
   const [isVideoPlayerOpen, setIsVideoPlayerOpen] = useState(false);
@@ -40,6 +41,7 @@ export default function Index() {
     trackWatchHistory(content, episode);
     
     setSelectedContent(content);
+    setSelectedEpisode(episode);
     setIsVideoPlayerOpen(true);
     setIsMovieModalOpen(false);
     setIsSeriesModalOpen(false);
@@ -209,7 +211,11 @@ export default function Index() {
       {isVideoPlayerOpen && selectedContent && (
         <VideoPlayer
           content={selectedContent}
-          onClose={() => setIsVideoPlayerOpen(false)}
+          episode={selectedEpisode}
+          onClose={() => {
+            setIsVideoPlayerOpen(false);
+            setSelectedEpisode(undefined);
+          }}
         />
       )}
 
