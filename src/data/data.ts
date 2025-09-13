@@ -655,6 +655,110 @@ export const animeSeries: Series[] = [
       }
     ],
     type: 'series'
+  },
+  {
+    id: 'what-if',
+    title: 'What If...?',
+    description: 'Exploring pivotal moments from the Marvel Cinematic Universe and turning them on their head, leading the audience into uncharted territory.',
+    poster: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=600&fit=crop',
+    backdrop: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=1920&h=1080&fit=crop',
+    year: 2021,
+    rating: '7.4',
+    genre: ['Animation', 'Action', 'Adventure'],
+    seasons: 1,
+    episodes: [
+      {
+        id: 'what-if-s1e1',
+        title: 'What If... Captain Carter Were the First Avenger?',
+        description: 'When Steve Rogers is seriously injured, Peggy Carter becomes the world\'s first super soldier.',
+        thumbnail: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=225&fit=crop',
+        duration: '34m',
+        episodeNumber: 1,
+        seasonNumber: 1,
+        videoUrl: 'https://embed.vidsrc.pk/series/what-if/1/1'
+      },
+      {
+        id: 'what-if-s1e2',
+        title: 'What If... T\'Challa Became a Star-Lord?',
+        description: 'The rough-and-tumble space pirates known as the Ravagers abduct T\'Challa instead of Peter Quill.',
+        thumbnail: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=225&fit=crop',
+        duration: '35m',
+        episodeNumber: 2,
+        seasonNumber: 1,
+        videoUrl: 'https://embed.vidsrc.pk/series/what-if/1/2'
+      },
+      {
+        id: 'what-if-s1e3',
+        title: 'What If... the World Lost Its Mightiest Heroes?',
+        description: 'Nick Fury struggles to launch the Avengers when candidates are targeted by a serial killer.',
+        thumbnail: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=225&fit=crop',
+        duration: '30m',
+        episodeNumber: 3,
+        seasonNumber: 1,
+        videoUrl: 'https://embed.vidsrc.pk/series/what-if/1/3'
+      },
+      {
+        id: 'what-if-s1e4',
+        title: 'What If... Doctor Strange Lost His Heart Instead of His Hands?',
+        description: 'When grief-stricken Stephen Strange uses the Time Stone, he fractures reality and faces the Ancient One.',
+        thumbnail: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=225&fit=crop',
+        duration: '36m',
+        episodeNumber: 4,
+        seasonNumber: 1,
+        videoUrl: 'https://embed.vidsrc.pk/series/what-if/1/4'
+      },
+      {
+        id: 'what-if-s1e5',
+        title: 'What If... Zombies?!',
+        description: 'When the Avengers are infected by a quantum virus that turns them into zombies.',
+        thumbnail: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=225&fit=crop',
+        duration: '34m',
+        episodeNumber: 5,
+        seasonNumber: 1,
+        videoUrl: 'https://embed.vidsrc.pk/series/what-if/1/5'
+      },
+      {
+        id: 'what-if-s1e6',
+        title: 'What If... Killmonger Rescued Tony Stark?',
+        description: 'An American soldier called Killmonger rescues Tony Stark when his Humvee is attacked in Afghanistan.',
+        thumbnail: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=225&fit=crop',
+        duration: '32m',
+        episodeNumber: 6,
+        seasonNumber: 1,
+        videoUrl: 'https://embed.vidsrc.pk/series/what-if/1/6'
+      },
+      {
+        id: 'what-if-s1e7',
+        title: 'What If... Thor Were an Only Child?',
+        description: 'Thor, who never learned to be a good hero, throws an out-of-control intergalactic party on Earth.',
+        thumbnail: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=225&fit=crop',
+        duration: '29m',
+        episodeNumber: 7,
+        seasonNumber: 1,
+        videoUrl: 'https://embed.vidsrc.pk/series/what-if/1/7'
+      },
+      {
+        id: 'what-if-s1e8',
+        title: 'What If... Ultron Won?',
+        description: 'Ultron successfully uploads his consciousness into Vision\'s body and wipes out the Avengers.',
+        thumbnail: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=225&fit=crop',
+        duration: '32m',
+        episodeNumber: 8,
+        seasonNumber: 1,
+        videoUrl: 'https://embed.vidsrc.pk/series/what-if/1/8'
+      },
+      {
+        id: 'what-if-s1e9',
+        title: 'What If... the Watcher Broke His Oath?',
+        description: 'The Watcher recruits heroes from across the multiverse to stop Infinity Ultron.',
+        thumbnail: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=225&fit=crop',
+        duration: '33m',
+        episodeNumber: 9,
+        seasonNumber: 1,
+        videoUrl: 'https://embed.vidsrc.pk/series/what-if/1/9'
+      }
+    ],
+    type: 'series'
   }
 ];
 
