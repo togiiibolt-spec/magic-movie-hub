@@ -1,6 +1,7 @@
-import { Play, Plus, Info } from 'lucide-react';
+import { Play, Plus, Info, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Content } from '@/data/data';
+import { useWishlist } from '@/contexts/WishlistContext';
 
 interface HeroSectionProps {
   content: Content;
@@ -9,6 +10,16 @@ interface HeroSectionProps {
 }
 
 export const HeroSection = ({ content, onPlay, onDetails }: HeroSectionProps) => {
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
+  const inWishlist = isInWishlist(content.id);
+
+  const handleWishlistToggle = () => {
+    if (inWishlist) {
+      removeFromWishlist(content.id);
+    } else {
+      addToWishlist(content);
+    }
+  };
   return (
     <div className="relative h-screen overflow-hidden">
       {/* Background Image */}
@@ -76,9 +87,10 @@ export const HeroSection = ({ content, onPlay, onDetails }: HeroSectionProps) =>
             <Button
               variant="ghost"
               size="lg"
+              onClick={handleWishlistToggle}
               className="bg-background/20 hover:bg-background/40 backdrop-blur-sm border border-border/50 px-4 py-3 transition-smooth hover:scale-105"
             >
-              <Plus className="h-6 w-6" />
+              {inWishlist ? <Check className="h-6 w-6" /> : <Plus className="h-6 w-6" />}
             </Button>
           </div>
         </div>
