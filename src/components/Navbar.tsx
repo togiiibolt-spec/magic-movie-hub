@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { useAuth } from '@/contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import fire5Logo from '@/assets/fire5-logo-updated.png';
+import fire5Logo from '@/assets/fire5-logo-red.png';
 import cloudflareIcon from '@/assets/cloudflare-logo.png';
 import profileIcon from '@/assets/profile-icon.png';
 
