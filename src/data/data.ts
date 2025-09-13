@@ -114,6 +114,19 @@ export const movies: Movie[] = [
     videoUrl: 'https://embed.vidsrc.pk/movie/tt3566834?lang=Hindi',
     type: 'movie'
   },
+  {
+    id: 'Stand by Me Doraemon 2',
+    title: 'Stand by Me Doraemon 2',
+    description: 'Nobita travels to the future to show his beloved grandma his bride, but adult Nobita has fled his own wedding.',
+    poster: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWBXvahX95ZB9rHLenlvHrvFzmQCey1FIeOQ&s',
+    backdrop: 'https://i0.wp.com/news.qoo-app.com/en/wp-content/uploads/sites/3/2019/12/19121211411294.jpg',
+    year: 2021,
+    rating: '7.5',
+    duration: '1h 36m',
+    genre: ['Family', 'Animation', 'Comedy'],
+    videoUrl: 'https://embed.vidsrc.pk/movie/728754-stand-by-me-2',
+    type: 'movie'
+  },
    {
     id: 'Black Panther',
     title: 'Black Panther',
