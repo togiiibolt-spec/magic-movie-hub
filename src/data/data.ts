@@ -114,6 +114,19 @@ export const movies: Movie[] = [
     videoUrl: 'https://embed.vidsrc.pk/movie/tt3566834?lang=Hindi',
     type: 'movie'
   },
+   {
+    id: 'Black Panther',
+    title: 'Black Panther',
+    description: 'T\'Challa, heir to the hidden but advanced kingdom of Wakanda, must step forward to lead his people into a new future and must confront a challenger from his country\'s past.',
+    poster: 'https://lumiere-a.akamaihd.net/v1/images/p_blackpanther_19754_4ac13f07.jpeg?region=0%2C0%2C540%2C810',
+    backdrop: 'https://knowledge.wharton.upenn.edu/wp-content/uploads/2018/03/pic.jpg',
+    year: 2018,
+    rating: '7.3',
+    duration: '2h 14m',
+    genre: ['Action', 'Adventure', 'Science Fiction'],
+    videoUrl: 'https://embed.vidsrc.pk/movie/284054',
+    type: 'movie'
+  },
   {
     id: 'Avengers: Endgame',
     title: 'Avengers: Endgame',
@@ -125,6 +138,19 @@ export const movies: Movie[] = [
     duration: '3h 1m',
     genre: ['Action', 'Adventure', 'SuperHero'],
     videoUrl: 'https://embed.vidsrc.pk/movie/tt4154796',
+    type: 'movie'
+  },
+  {
+    id: 'Black Clover: Sword of the Wizard King',
+    title: 'Black Clover: Sword of the Wizard King',
+    description: 'After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos\' actions and restore balance to the universe.',
+    poster: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4Rl1ua8VpFTFOJsQ-xMfdejIykcICDr8nyw&s',
+    backdrop: 'https://occ-0-8407-90.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABSPHE2O2cy8BfSym8IHQ37bTehyP-BDW-MMo31SuQFOvPZA3XjvVy9k1Tg5nvL0AFiKVPQcjzrNw3qUGm0TZorkdhbVbu4cT2WtS.jpg?r=cca',
+    year: 2023,
+    rating: '7.4',
+    duration: '1h 50m',
+    genre: ['Action', 'Adventure', 'Anime'],
+    videoUrl: 'https://embed.vidsrc.pk/movie/812225',
     type: 'movie'
   },
   
