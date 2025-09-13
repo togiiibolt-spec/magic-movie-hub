@@ -486,7 +486,7 @@ export const animeSeries: Series[] = [
         episodeNumber: 1,
         seasonNumber: 1,
         videoUrl: 'https://play.zephyrflick.top/video/786fc80896b25422b5324cb6e57b701c'
-      }
+      },
       {
         id: 'Our Lady of Sorrows 1x2',
         title: 'Our Lady of Sorrows',
@@ -496,7 +496,7 @@ export const animeSeries: Series[] = [
         episodeNumber: 2,
         seasonNumber: 1,
         videoUrl: 'https://play.zephyrflick.top/video/1b8e84dcae97ad25234484e38615c570'
-      }
+      },
       {
         id: 'The Deep and Savage Way 1x3',
         title: 'The Deep and Savage Way',
@@ -506,7 +506,7 @@ export const animeSeries: Series[] = [
         episodeNumber: 3,
         seasonNumber: 1,
         videoUrl: 'https://play.zephyrflick.top/video/36597855fca55b54f30f55d8820a2f8b'
-      }
+      },
       {
         id: 'All Hope Abandon 1x4',
         title: 'All Hope Abandon',
@@ -516,8 +516,8 @@ export const animeSeries: Series[] = [
         episodeNumber: 4,
         seasonNumber: 1,
         videoUrl: 'https://play.zephyrflick.top/video/94d2a3c6dd19337f2511cdf8b4bf907e'
-      }
-       {
+      },
+      {
         id: 'Descent 1x5',
         title: 'Descent',
         description: 'Grim discoveries complicate Mary\'s mission. An exhilarating free fall fuels an epic transformation, forcing Dante to confront his demon side.',
@@ -526,7 +526,7 @@ export const animeSeries: Series[] = [
         episodeNumber: 5,
         seasonNumber: 1,
         videoUrl: 'https://play.zephyrflick.top/video/e022c20ad33354cbec77cc9709996dd1'
-      }
+      },
       {
         id: 'The First Circle 1x6',
         title: 'The First Circle',
@@ -536,7 +536,7 @@ export const animeSeries: Series[] = [
         episodeNumber: 6,
         seasonNumber: 1,
         videoUrl: 'https://play.zephyrflick.top/video/e7d81336a1915eff69e6eb7f32cf1e77'
-      }
+      },
       {
         id: 'At the Gates of Paradise 1x7',
         title: 'At the Gates of Paradise',
@@ -546,7 +546,7 @@ export const animeSeries: Series[] = [
         episodeNumber: 7,
         seasonNumber: 1,
         videoUrl: 'https://play.zephyrflick.top/video/2eff4694dc9b370d5464f920c0fbb7ba'
-      }
+      },
       {
         id: 'A River of Blood and Fire 1x8',
         title: 'A River of Blood and Fire',
