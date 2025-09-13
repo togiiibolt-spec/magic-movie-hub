@@ -467,25 +467,95 @@ export const animeSeries: Series[] = [
     type: 'series'
   },
   {
-    id: 'jujutsu-kaisen',
-    title: 'Jujutsu Kaisen',
-    description: 'A student joins a secret organization of sorcerers to kill cursed demons.',
-    poster: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=600&fit=crop',
-    backdrop: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&h=1080&fit=crop',
-    year: 2020,
-    rating: '8.6',
-    genre: ['Action', 'Supernatural', 'Anime'],
-    seasons: 2,
+    id: 'Devil May Cry',
+    title: 'Devil May Cry',
+    description: 'When a mysterious villain threatens to open the gates of Hell, a devilishly handsome demon hunter could be the world\'s best hope for salvation.',
+    poster: 'https://preview.redd.it/official-poster-for-the-devil-may-cry-series-v0-hwe7koa39jie1.jpeg?auto=webp&s=0122b235f233a0f606cb9e8890abe159f1224c1c',
+    backdrop: 'https://occ-0-8407-114.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABeFY5lSVKVZUwr09DCfz9TEDmag93buXjnZGhjP2H053acBS6DfPVdfkte3hvW98K3kiaEjo5TZn6-y3rH0bLWHQqp_hHChIBq_P.jpg?r=346',
+    year: 2025,
+    rating: '8.0',
+    genre: ['Action', 'Advanture', 'Anime'],
+    seasons: 1,
     episodes: [
       {
-        id: 'jjk-s1e1',
-        title: 'Ryomen Sukuna',
-        description: 'Yuji Itadori joins the Occult Research Club.',
-        thumbnail: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=225&fit=crop',
+        id: 'Inferno 1x1',
+        title: 'Inferno',
+        description: 'A violent heist at a Vatican City museum sparks chaos, pulling unsuspecting demon hunter Dante into a sinister plot to forge a rift between worlds.',
+        thumbnail: 'https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQa8VqicUZxDDjiIcBXivD_RkIM5aeSy_eFDDimz4lk7zIAQZbq-fGwudVCmNUHL_WQxl98PfXkFks92JPYfG96A12td1WPldGlQUcXlBeEqSaR-2J3SzvG761cI8gTfKSxyBBb54IZdPX3ykKvOA.jpg?r=3f1',
         duration: '24m',
         episodeNumber: 1,
         seasonNumber: 1,
-        videoUrl: 'https://embed.vidsrc.pk/series/jujutsu-kaisen/1/1'
+        videoUrl: 'https://play.zephyrflick.top/video/786fc80896b25422b5324cb6e57b701c'
+      }
+      {
+        id: 'Our Lady of Sorrows 1x2',
+        title: 'Our Lady of Sorrows',
+        description: 'In Washington, DARKCOM gathers a group of mercenaries and offers a bounty to bring in Dante — and the family heirloom that hangs around his neck.',
+        thumbnail: 'https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQa8VqicUZxDDjiIcBXivD_RkIM5aeSy_eFDDimz4lk7zIAQZbq-fGwudVCmNUHL_WQxl98PfXkFks92JPYfG96A12td1WPldGlQUcXlBeEqSaR-2J3SzvG761cI8gTfKSxyBBb54IZdPX3ykKvOA.jpg?r=3f1',
+        duration: '24m',
+        episodeNumber: 2,
+        seasonNumber: 1,
+        videoUrl: 'https://play.zephyrflick.top/video/1b8e84dcae97ad25234484e38615c570'
+      }
+      {
+        id: 'The Deep and Savage Way 1x3',
+        title: 'The Deep and Savage Way',
+        description: 'A flashback sheds light on Mary\'s past. In the present, a convoy with precious cargo hits a roadblock as the White Rabbit creeps closer to his prey.',
+        thumbnail: 'https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQa8VqicUZxDDjiIcBXivD_RkIM5aeSy_eFDDimz4lk7zIAQZbq-fGwudVCmNUHL_WQxl98PfXkFks92JPYfG96A12td1WPldGlQUcXlBeEqSaR-2J3SzvG761cI8gTfKSxyBBb54IZdPX3ykKvOA.jpg?r=3f1',
+        duration: '24m',
+        episodeNumber: 3,
+        seasonNumber: 1,
+        videoUrl: 'https://play.zephyrflick.top/video/36597855fca55b54f30f55d8820a2f8b'
+      }
+      {
+        id: 'All Hope Abandon 1x4',
+        title: 'All Hope Abandon',
+        description: 'The amulet\'s signal leads DARKCOM to a run-down apartment building. But is it really the Rabbit\'s lair... or a trap? Dante learns his true origins.',
+        thumbnail: 'https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQa8VqicUZxDDjiIcBXivD_RkIM5aeSy_eFDDimz4lk7zIAQZbq-fGwudVCmNUHL_WQxl98PfXkFks92JPYfG96A12td1WPldGlQUcXlBeEqSaR-2J3SzvG761cI8gTfKSxyBBb54IZdPX3ykKvOA.jpg?r=3f1',
+        duration: '24m',
+        episodeNumber: 4,
+        seasonNumber: 1,
+        videoUrl: 'https://play.zephyrflick.top/video/94d2a3c6dd19337f2511cdf8b4bf907e'
+      }
+       {
+        id: 'Descent 1x5',
+        title: 'Descent',
+        description: 'Grim discoveries complicate Mary\'s mission. An exhilarating free fall fuels an epic transformation, forcing Dante to confront his demon side.',
+        thumbnail: 'https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQa8VqicUZxDDjiIcBXivD_RkIM5aeSy_eFDDimz4lk7zIAQZbq-fGwudVCmNUHL_WQxl98PfXkFks92JPYfG96A12td1WPldGlQUcXlBeEqSaR-2J3SzvG761cI8gTfKSxyBBb54IZdPX3ykKvOA.jpg?r=3f1',
+        duration: '24m',
+        episodeNumber: 5,
+        seasonNumber: 1,
+        videoUrl: 'https://play.zephyrflick.top/video/e022c20ad33354cbec77cc9709996dd1'
+      }
+      {
+        id: 'The First Circle 1x6',
+        title: 'The First Circle',
+        description: 'A revealing trip down the rabbit hole yields a haunting tale of two childhoods — parallel stories with intertwining fates.',
+        thumbnail: 'https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQa8VqicUZxDDjiIcBXivD_RkIM5aeSy_eFDDimz4lk7zIAQZbq-fGwudVCmNUHL_WQxl98PfXkFks92JPYfG96A12td1WPldGlQUcXlBeEqSaR-2J3SzvG761cI8gTfKSxyBBb54IZdPX3ykKvOA.jpg?r=3f1',
+        duration: '24m',
+        episodeNumber: 6,
+        seasonNumber: 1,
+        videoUrl: 'https://play.zephyrflick.top/video/e7d81336a1915eff69e6eb7f32cf1e77'
+      }
+      {
+        id: 'At the Gates of Paradise 1x7',
+        title: 'At the Gates of Paradise',
+        description: 'The stage is set for the ultimate showdown as the Rabbit and his army lie in wait for Dante to arrive. But there\'s more than one hero ready to fight.',
+        thumbnail: 'https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQa8VqicUZxDDjiIcBXivD_RkIM5aeSy_eFDDimz4lk7zIAQZbq-fGwudVCmNUHL_WQxl98PfXkFks92JPYfG96A12td1WPldGlQUcXlBeEqSaR-2J3SzvG761cI8gTfKSxyBBb54IZdPX3ykKvOA.jpg?r=3f1',
+        duration: '24m',
+        episodeNumber: 7,
+        seasonNumber: 1,
+        videoUrl: 'https://play.zephyrflick.top/video/2eff4694dc9b370d5464f920c0fbb7ba'
+      }
+      {
+        id: 'A River of Blood and Fire 1x8',
+        title: 'A River of Blood and Fire',
+        description: 'Dante and Mary face impossible choices — and an enemy more powerful than the world has ever seen. In the aftermath, Baines puts a bold plan into motion.',
+        thumbnail: 'https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQa8VqicUZxDDjiIcBXivD_RkIM5aeSy_eFDDimz4lk7zIAQZbq-fGwudVCmNUHL_WQxl98PfXkFks92JPYfG96A12td1WPldGlQUcXlBeEqSaR-2J3SzvG761cI8gTfKSxyBBb54IZdPX3ykKvOA.jpg?r=3f1',
+        duration: '24m',
+        episodeNumber: 8,
+        seasonNumber: 1,
+        videoUrl: 'https://play.zephyrflick.top/video/1764183ef03fc7324eb58c3842bd9a57'
       }
     ],
     type: 'series'
