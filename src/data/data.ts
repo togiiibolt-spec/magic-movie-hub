@@ -660,10 +660,10 @@ export const animeSeries: Series[] = [
     id: 'what-if',
     title: 'What If...?',
     description: 'Exploring pivotal moments from the Marvel Cinematic Universe and turning them on their head, leading the audience into uncharted territory.',
-    poster: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=600&fit=crop',
-    backdrop: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=1920&h=1080&fit=crop',
-    year: 2021,
-    rating: '7.4',
+    poster: 'https://upload.wikimedia.org/wikipedia/en/b/b4/What_If...%3F_season_2_poster.jpeg',
+    backdrop: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGp7jx-CHb0s8eYaO57ISmIx2jcQ147sK6mA&s',
+    year: 2024,
+    rating: '7.3',
     genre: ['Animation', 'Action', 'Adventure'],
     seasons: 1,
     episodes: [
@@ -671,21 +671,21 @@ export const animeSeries: Series[] = [
         id: 'what-if-s1e1',
         title: 'What If... Captain Carter Were the First Avenger?',
         description: 'When Steve Rogers is seriously injured, Peggy Carter becomes the world\'s first super soldier.',
-        thumbnail: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=225&fit=crop',
+        thumbnail: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGp7jx-CHb0s8eYaO57ISmIx2jcQ147sK6mA&s',
         duration: '34m',
         episodeNumber: 1,
         seasonNumber: 1,
-        videoUrl: 'https://embed.vidsrc.pk/series/what-if/1/1'
+        videoUrl: 'https://play.zephyrflick.top/video/bedc7106ffa9616ddc27e360b9ac02a6'
       },
       {
         id: 'what-if-s1e2',
         title: 'What If... T\'Challa Became a Star-Lord?',
         description: 'The rough-and-tumble space pirates known as the Ravagers abduct T\'Challa instead of Peter Quill.',
-        thumbnail: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=225&fit=crop',
+        thumbnail: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGp7jx-CHb0s8eYaO57ISmIx2jcQ147sK6mA&s',
         duration: '35m',
         episodeNumber: 2,
         seasonNumber: 1,
-        videoUrl: 'https://embed.vidsrc.pk/series/what-if/1/2'
+        videoUrl: 'https://play.zephyrflick.top/video/39b8f721582654655a6999aabe905204'
       },
       {
         id: 'what-if-s1e3',
@@ -695,7 +695,7 @@ export const animeSeries: Series[] = [
         duration: '30m',
         episodeNumber: 3,
         seasonNumber: 1,
-        videoUrl: 'https://embed.vidsrc.pk/series/what-if/1/3'
+        videoUrl: 'https://play.zephyrflick.top/video/05128e44e27c36bdba71221bfccf735d'
       },
       {
         id: 'what-if-s1e4',
@@ -705,7 +705,7 @@ export const animeSeries: Series[] = [
         duration: '36m',
         episodeNumber: 4,
         seasonNumber: 1,
-        videoUrl: 'https://embed.vidsrc.pk/series/what-if/1/4'
+        videoUrl: 'https://play.zephyrflick.top/video/34609bdc08a07ace4e1526bbb1777673'
       },
       {
         id: 'what-if-s1e5',
@@ -715,7 +715,7 @@ export const animeSeries: Series[] = [
         duration: '34m',
         episodeNumber: 5,
         seasonNumber: 1,
-        videoUrl: 'https://embed.vidsrc.pk/series/what-if/1/5'
+        videoUrl: 'https://play.zephyrflick.top/video/b1b0ef5ba6b569680ece2fae998c4d0a'
       },
       {
         id: 'what-if-s1e6',
@@ -725,7 +725,7 @@ export const animeSeries: Series[] = [
         duration: '32m',
         episodeNumber: 6,
         seasonNumber: 1,
-        videoUrl: 'https://embed.vidsrc.pk/series/what-if/1/6'
+        videoUrl: 'https://play.zephyrflick.top/video/ddf88ea64eaed0f3de5531ac964a0a1a'
       },
       {
         id: 'what-if-s1e7',
@@ -735,7 +735,7 @@ export const animeSeries: Series[] = [
         duration: '29m',
         episodeNumber: 7,
         seasonNumber: 1,
-        videoUrl: 'https://embed.vidsrc.pk/series/what-if/1/7'
+        videoUrl: 'https://play.zephyrflick.top/video/eaa1da31f7991743d18dadcf5fd1336f'
       },
       {
         id: 'what-if-s1e8',
@@ -745,7 +745,7 @@ export const animeSeries: Series[] = [
         duration: '32m',
         episodeNumber: 8,
         seasonNumber: 1,
-        videoUrl: 'https://embed.vidsrc.pk/series/what-if/1/8'
+        videoUrl: 'https://play.zephyrflick.top/video/9fe4e15b3924b1a78221734d0c063ae7'
       },
       {
         id: 'what-if-s1e9',
@@ -755,7 +755,7 @@ export const animeSeries: Series[] = [
         duration: '33m',
         episodeNumber: 9,
         seasonNumber: 1,
-        videoUrl: 'https://embed.vidsrc.pk/series/what-if/1/9'
+        videoUrl: 'https://play.zephyrflick.top/video/18a010d2a9813e91907ce88cd9143fdf'
       }
     ],
     type: 'series'
