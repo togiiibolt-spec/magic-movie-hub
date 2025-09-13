@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
-import fire5Logo from '@/assets/fire5-logo-updated.png';
+import fire5Logo from '@/assets/fire5-logo-new.png';
 
 export default function Auth() {
   const { user, signIn, signUp, loading } = useAuth();

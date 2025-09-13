@@ -10,11 +10,9 @@ import { SeriesModal } from "@/components/SeriesModal";
 import { categories, movies, series, allContent } from "@/data/data";
 import type { Movie, Series, Content, Episode } from "@/data/data";
 import { supabase } from "@/integrations/supabase/client";
-import { useWishlist } from "@/contexts/WishlistContext";
 
 export default function Index() {
   const { user, loading } = useAuth();
-  const { wishlist } = useWishlist();
   const navigate = useNavigate();
   const [selectedContent, setSelectedContent] = useState<Content | null>(null);
   const [selectedEpisode, setSelectedEpisode] = useState<Episode | undefined>(undefined);
@@ -158,25 +156,6 @@ export default function Index() {
         <ContentRow
           title="Series"
           content={series}
-          onPlay={handlePlay}
-          onDetails={handleDetails}
-        />
-      );
-    }
-
-    if (activeTab === "watchlist") {
-      if (wishlist.length === 0) {
-        return (
-          <div className="text-center py-20">
-            <h2 className="text-2xl font-bold mb-4">Your Watchlist is Empty</h2>
-            <p className="text-gray-400">Add movies and series to your watchlist to see them here</p>
-          </div>
-        );
-      }
-      return (
-        <ContentRow
-          title="My Watchlist"
-          content={wishlist}
           onPlay={handlePlay}
           onDetails={handleDetails}
         />
