@@ -119,7 +119,9 @@ export default function Index() {
   const filteredContent = searchQuery
     ? allContent.filter(item =>
         item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.genre.some(g => g.toLowerCase().includes(searchQuery.toLowerCase()))
+        item.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.genre.some(g => g.toLowerCase().includes(searchQuery.toLowerCase())) ||
+        item.year.toString().includes(searchQuery)
       )
     : [];
 

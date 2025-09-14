@@ -25,6 +25,13 @@ export const TopBar = ({ onSearch }: TopBarProps) => {
     setIsSearchOpen(false);
   };
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setSearchQuery(value);
+    // Real-time search
+    onSearch(value);
+  };
+
   const handleSwitchProfile = () => {
     navigate('/profiles');
   };
@@ -51,7 +58,7 @@ export const TopBar = ({ onSearch }: TopBarProps) => {
                 type="text"
                 placeholder="Search movies and series..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={handleInputChange}
                 className="pl-10 w-64 bg-card border-border focus:ring-2 focus:ring-primary"
                 autoFocus
                 onBlur={() => {
