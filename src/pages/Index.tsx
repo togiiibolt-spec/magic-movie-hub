@@ -5,6 +5,7 @@ import { Sidebar } from "@/components/Sidebar";
 import { TopBar } from "@/components/TopBar";
 import { HeroSection } from "@/components/HeroSection";
 import { ContentRow } from "@/components/ContentRow";
+import { WishlistContent } from "@/components/WishlistContent";
 import { VideoPlayer } from "@/components/VideoPlayer";
 import { MovieModal } from "@/components/MovieModal";
 import { SeriesModal } from "@/components/SeriesModal";
@@ -70,6 +71,7 @@ export default function Index() {
       return;
     }
     setActiveTab(tab);
+    setSearchQuery(''); // Clear search when changing tabs
   };
 
   const trackWatchHistory = async (content: Content, episode?: Episode) => {
@@ -139,6 +141,10 @@ export default function Index() {
           onDetails={handleDetails}
         />
       );
+    }
+
+    if (activeTab === "watchlist") {
+      return <WishlistContent onPlay={handlePlay} onDetails={handleDetails} />;
     }
 
     if (activeTab === "movies") {

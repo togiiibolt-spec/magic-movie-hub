@@ -1,161 +1,150 @@
-import { ChevronLeft, ChevronRight, Play, Plus } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Content } from '@/data/data';
 import { useState, useRef } from 'react';
+import { Play, Info, Plus, Check, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Content, Movie, Series, Episode } from '@/data/data';
+import { useWishlist } from '@/contexts/WishlistContext';
 
 interface ContentRowProps {
   title: string;
   content: Content[];
-  onPlay: (content: Content) => void;
+  onPlay: (content: Content, episode?: Episode) => void;
   onDetails: (content: Content) => void;
 }
 
 export const ContentRow = ({ title, content, onPlay, onDetails }: ContentRowProps) => {
-  const [scrollPosition, setScrollPosition] = useState(0);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: 'left' | 'right') => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    const scrollAmount = container.clientWidth * 0.8;
-    const newPosition = direction === 'left' 
-      ? Math.max(0, scrollPosition - scrollAmount)
-      : Math.min(container.scrollWidth - container.clientWidth, scrollPosition + scrollAmount);
-
-    container.scrollTo({ left: newPosition, behavior: 'smooth' });
-    setScrollPosition(newPosition);
+    if (scrollContainerRef.current) {
+      const scrollAmount = 400;
+      const newScrollLeft = scrollContainerRef.current.scrollLeft + 
+        (direction === 'right' ? scrollAmount : -scrollAmount);
+      
+      scrollContainerRef.current.scrollTo({
+        left: newScrollLeft,
+        behavior: 'smooth'
+      });
+    }
   };
 
-  const showLeftArrow = scrollPosition > 0;
-  const showRightArrow = scrollContainerRef.current && 
-    scrollPosition < scrollContainerRef.current.scrollWidth - scrollContainerRef.current.clientWidth;
+  const handleWishlistToggle = (content: Content, e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (isInWishlist(content.id)) {
+      removeFromWishlist(content.id);
+    } else {
+      addToWishlist(content);
+    }
+  };
 
   return (
-    <div className="relative group mb-8">
-      <h2 className="text-2xl font-bold mb-4 px-6 md:px-12 lg:px-16">{title}</h2>
+    <div className="px-6 py-8">
+      <h2 className="text-2xl font-bold mb-6 text-foreground">{title}</h2>
       
-      <div className="relative">
+      <div className="relative group">
         {/* Left Arrow */}
-        {showLeftArrow && (
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => scroll('left')}
-            className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 hover:bg-background/90 backdrop-blur-sm h-12 w-12 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"
-          >
-            <ChevronLeft className="h-6 w-6" />
-          </Button>
-        )}
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={() => scroll('left')}
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-background/80 hover:bg-background backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity h-full rounded-none"
+        >
+          <ChevronLeft className="h-6 w-6" />
+        </Button>
 
         {/* Right Arrow */}
-        {showRightArrow && (
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => scroll('right')}
-            className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 hover:bg-background/90 backdrop-blur-sm h-12 w-12 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"
-          >
-            <ChevronRight className="h-6 w-6" />
-          </Button>
-        )}
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={() => scroll('right')}
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-background/80 hover:bg-background backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity h-full rounded-none"
+        >
+          <ChevronRight className="h-6 w-6" />
+        </Button>
 
         {/* Content Container */}
-        <div
+        <div 
           ref={scrollContainerRef}
-          className="flex space-x-4 overflow-x-auto scrollbar-hide px-6 md:px-12 lg:px-16 pb-4"
-          onScroll={(e) => setScrollPosition(e.currentTarget.scrollLeft)}
+          className="flex space-x-4 overflow-x-auto scrollbar-hide pb-4"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {content.map((item) => (
-            <ContentCard
+            <div
               key={item.id}
-              content={item}
-              onPlay={onPlay}
-              onDetails={onDetails}
-            />
+              className="flex-shrink-0 w-48 cursor-pointer group/item"
+              onMouseEnter={() => setHoveredItem(item.id)}
+              onMouseLeave={() => setHoveredItem(null)}
+              onClick={() => onDetails(item)}
+            >
+              <div className="relative overflow-hidden rounded-lg bg-card shadow-card group-hover/item:scale-105 transition-all duration-300">
+                <img
+                  src={item.poster}
+                  alt={item.title}
+                  className="w-full h-72 object-cover"
+                />
+                
+                {/* Action Buttons */}
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover/item:opacity-100 transition-all duration-300 flex items-end p-4">
+                  <div className="flex space-x-2">
+                    <Button
+                      size="sm"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onPlay(item, item.type === 'series' ? (item as Series).episodes?.[0] : undefined);
+                      }}
+                      className="bg-white text-black hover:bg-white/90 h-8 w-8 p-0"
+                    >
+                      <Play className="h-4 w-4 fill-current" />
+                    </Button>
+                    
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={(e) => handleWishlistToggle(item, e)}
+                      className="bg-transparent border-white text-white hover:bg-white/20 h-8 w-8 p-0"
+                    >
+                      {isInWishlist(item.id) ? (
+                        <Check className="h-4 w-4" />
+                      ) : (
+                        <Plus className="h-4 w-4" />
+                      )}
+                    </Button>
+                    
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onDetails(item);
+                      }}
+                      className="bg-transparent border-white text-white hover:bg-white/20 h-8 w-8 p-0"
+                    >
+                      <Info className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Content Badge */}
+                <div className="absolute top-2 left-2">
+                  <span className="bg-background/90 text-foreground px-2 py-1 rounded text-xs font-medium">
+                    {item.type === 'movie' ? 'Movie' : 'Series'}
+                  </span>
+                </div>
+              </div>
+
+              {/* Content Info */}
+              <div className="mt-2 space-y-1">
+                <h3 className="font-medium text-sm leading-tight line-clamp-2">{item.title}</h3>
+                <div className="flex items-center space-x-1 text-xs text-muted-foreground">
+                  <span>{item.year}</span>
+                  <span>•</span>
+                  <span>{item.rating}</span>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
-      </div>
-    </div>
-  );
-};
-
-interface ContentCardProps {
-  content: Content;
-  onPlay: (content: Content) => void;
-  onDetails: (content: Content) => void;
-}
-
-const ContentCard = ({ content, onPlay, onDetails }: ContentCardProps) => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  return (
-    <div
-      className="flex-shrink-0 w-64 cursor-pointer group transition-smooth"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onClick={() => onDetails(content)}
-    >
-      <div className="relative overflow-hidden rounded-lg bg-card shadow-card">
-        <img
-          src={content.poster}
-          alt={content.title}
-          className="w-full h-96 object-cover transition-smooth group-hover:scale-110"
-        />
-        
-        {/* Hover Overlay */}
-        <div className={`absolute inset-0 bg-black/60 flex items-center justify-center transition-all duration-300 ${
-          isHovered ? 'opacity-100' : 'opacity-0'
-        }`}>
-          <div className="flex items-center space-x-3">
-            <Button
-              size="sm"
-              onClick={(e) => {
-                e.stopPropagation();
-                onPlay(content);
-              }}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground"
-            >
-              <Play className="h-4 w-4 mr-1 fill-current" />
-              Play
-            </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={(e) => {
-                e.stopPropagation();
-                // Add to watchlist functionality
-              }}
-              className="bg-background/20 hover:bg-background/40 backdrop-blur-sm border border-border/50"
-            >
-              <Plus className="h-4 w-4" />
-            </Button>
-          </div>
-        </div>
-
-        {/* Content Badge */}
-        <div className="absolute top-3 left-3">
-          <span className="bg-background/90 text-foreground px-2 py-1 rounded text-xs font-medium">
-            {content.type === 'movie' ? 'Movie' : 'Series'}
-          </span>
-        </div>
-      </div>
-
-      {/* Content Info */}
-      <div className="mt-3 space-y-1">
-        <h3 className="font-semibold text-lg leading-tight line-clamp-2">{content.title}</h3>
-        <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-          <span>{content.year}</span>
-          <span>•</span>
-          <span>{content.rating}</span>
-          {content.type === 'movie' && (
-            <>
-              <span>•</span>
-              <span>{(content as any).duration}</span>
-            </>
-          )}
-        </div>
-        <p className="text-sm text-muted-foreground line-clamp-2">{content.description}</p>
       </div>
     </div>
   );
