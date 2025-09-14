@@ -56,7 +56,7 @@ export const Navbar = ({ onSearch, activeTab, onTabChange }: NavbarProps) => {
         <div className="flex items-center space-x-8">
           <div className="flex items-center space-x-4">
             <img 
-              src={fire5Logo} 
+              src="https://storage.googleapis.com/gpt-engineer-file-uploads/wjuteShyGeeymSXhdCIvLF19Hid2/67fb6b12-ddbc-4b21-ac0b-ff0a170eeef4?Expires=1757830465&GoogleAccessId=go-api-on-aws%40gpt-engineer-390607.iam.gserviceaccount.com&Signature=UqUFaVCDT5a5Zuw8azNSoStg0H4pn90sm5VcFIFSkg75TpI7Se9X7v%2FOavZVK%2Btw09yNkcK%2BUW%2F2A08NnkIWWwbnnTbHZiCs6KqNnU7c1Fj%2BND1dBMZyTo8KxtTHnKvKGBHNY9fmGFCvRmBCCZdm3%2FTTjzZg7XN%2FezHjqRkaIObWQYCbIwERtN9p9qrC1nSx5c9oQjTheH7hGQ%2Fsa%2BVUzjVoWcf%2BhdTZcjyZvQ%2B3klicu6GOl%2FqxCG9FEUnYFdsJPOT4TO8p04WEx0yuPTmQHB0s4BjJ0g9snAuArTu5BiTH6OTHl7EEDowWF5d9INGe5bUeXrWp8AUsyuXP5TUqqg%3D%3D" 
               alt="FIRE5" 
               className="h-8 w-auto" 
             />
