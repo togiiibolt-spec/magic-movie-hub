@@ -10,7 +10,7 @@ interface HeroSectionProps {
 
 export const HeroSection = ({ content, onPlay, onDetails }: HeroSectionProps) => {
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className="relative h-[80vh] overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
@@ -18,11 +18,12 @@ export const HeroSection = ({ content, onPlay, onDetails }: HeroSectionProps) =>
           alt={content.title}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-hero-gradient" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex items-center h-full px-6 md:px-12 lg:px-16">
+      <div className="relative z-10 flex items-end h-full px-6 md:px-12 lg:px-16 pb-20">
         <div className="max-w-2xl space-y-6 animate-fade-in">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
             {content.title}

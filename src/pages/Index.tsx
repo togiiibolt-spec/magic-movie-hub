@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
-import { Navbar } from "@/components/Navbar";
+import { Sidebar } from "@/components/Sidebar";
+import { TopBar } from "@/components/TopBar";
 import { HeroSection } from "@/components/HeroSection";
 import { ContentRow } from "@/components/ContentRow";
 import { VideoPlayer } from "@/components/VideoPlayer";
@@ -196,16 +197,19 @@ export default function Index() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar
-        onSearch={handleSearch}
+    <div className="min-h-screen bg-background flex">
+      <Sidebar
         activeTab={activeTab}
         onTabChange={handleTabChange}
       />
-
-      <main className="pt-20">
-        {renderContent()}
-      </main>
+      
+      <div className="flex-1 flex flex-col">
+        <TopBar onSearch={handleSearch} />
+        
+        <main className="flex-1 overflow-y-auto">
+          {renderContent()}
+        </main>
+      </div>
 
       {/* Video Player Modal */}
       {isVideoPlayerOpen && selectedContent && (
