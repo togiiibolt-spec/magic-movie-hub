@@ -89,6 +89,19 @@ export const music: Music[] = [
 
 export const movies: Movie[] = [
   {
+    id: 'Demon Slayer Infinity Castle (Camrip)',
+    title: 'Demon Slayer Infinity Castle (Camrip)',
+    description: 'The Demon Slayer Corps are drawn into the Infinity Castle, where Tanjiro, Nezuko, and the Hashira face terrifying Upper Rank demons in a desperate fight as the final battle against Muzan Kibutsuji begins.',
+    poster: 'https://preview.redd.it/new-poster-for-demon-slayer-kimetsu-no-yaiba-infinity-v0-jnccimdxdo9f1.jpeg?width=1080&crop=smart&auto=webp&s=b6da9904b864b48097db1a0c56934421c61ace83',
+    backdrop: 'https://static1.squarespace.com/static/51b3dc8ee4b051b96ceb10de/51ce6099e4b0d911b4489b79/6886b37220c23f75a71b3a62/1753738248138/Tanjiro+and+Giyu+Face+Akaza+in+Epic+New+DEMON+SLAYER-+INFINITY+CASTLE+Poster.jpg?format=1500w',
+    year: 2025,
+    rating: '7.4',
+    duration: '2h 35m',
+    genre: ['Animation', 'Adventure', 'Thriller'],
+    videoUrl: 'https://animedekho.co/embed/1311031',
+    type: 'movie'
+  },
+  {
     id: 'The Nun II',
     title: 'The Nun II',
     description: 'a 2023 supernatural horror film and the eighth installment in The Conjuring Universe, following Sister Irene as she once again confronts the demonic nun Valak.',
