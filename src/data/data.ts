@@ -102,6 +102,19 @@ export const movies: Movie[] = [
     type: 'movie'
   },
   {
+    id: 'Superman (2025)',
+    title: 'Superman (2025)',
+    description: 'Superman, a journalist in Metropolis, embarks on a journey to reconcile his Kryptonian heritage with his human upbringing as Clark Kent.',
+    poster: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ15laoOMJH8fUf14k1dJiQwzLpEgd5uoZtIQ&s',
+    backdrop: 'https://fsgk.pl/wp-content/uploads/2025/07/Superman_lead-780x470.jpg',
+    year: 2025,
+    rating: '7.5',
+    duration: '2h 10m',
+    genre: ['Action', 'Adventure', 'Science Fiction'],
+    videoUrl: 'https://embed.vidsrc.pk/movie/1061474',
+    type: 'movie'
+  },
+  {
     id: 'The Nun II',
     title: 'The Nun II',
     description: 'a 2023 supernatural horror film and the eighth installment in The Conjuring Universe, following Sister Irene as she once again confronts the demonic nun Valak.',
