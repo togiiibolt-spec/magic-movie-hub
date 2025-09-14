@@ -98,7 +98,7 @@ export const movies: Movie[] = [
     rating: '7.4',
     duration: '2h 35m',
     genre: ['Animation', 'Adventure', 'Thriller'],
-    videoUrl: 'https://animedekho.co/embed/1311031',
+    videoUrl: 'https://play.zephyrflick.top/video/9398a81b705d554c0e94ef6b2081ffd4',
     type: 'movie'
   },
   {
