@@ -115,6 +115,19 @@ export const movies: Movie[] = [
     type: 'movie'
   },
   {
+    id: 'Interstellar',
+    title: 'Interstellar',
+    description: 'The adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.',
+    poster: 'https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p10543523_p_v8_as.jpg',
+    backdrop: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYrnng1ELbhJWEt97aDbsOFvVElCfyZPv3hQ&s',
+    year: 2014,
+    rating: '8.5',
+    duration: '2h 49m',
+    genre: ['Drama', 'Adventure', 'Space'],
+    videoUrl: 'https://embed.vidsrc.pk/movie/157336',
+    type: 'movie'
+  },
+  {
     id: 'A Minecraft Movie',
     title: 'A Minecraft Movie',
     description: 'Four misfits are suddenly pulled through a mysterious portal into a bizarre cubic wonderland that thrives on imagination. To get back home they ll have to master this world while embarking on a quest with an unexpected expert crafter.',
