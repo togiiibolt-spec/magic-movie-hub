@@ -18,18 +18,12 @@ interface Profile {
 }
 
 const avatarOptions = [
-  '/lovable-uploads/5c1d6034-4393-4c57-a546-2a766a1ce694.png',
-  'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop&crop=face',
-  'https://images.unsplash.com/photo-1494790108755-2616c5e10e40?w=100&h=100&fit=crop&crop=face',
-  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face',
-  'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face',
-  'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face',
-  'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=face',
-  'https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?w=100&h=100&fit=crop&crop=face',
-  'https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=100&h=100&fit=crop&crop=face',
-  'https://images.unsplash.com/photo-1506794778202-cad84cf45f7b?w=100&h=100&fit=crop&crop=face',
-  'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=100&h=100&fit=crop&crop=face',
-  'https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=100&h=100&fit=crop&crop=face'
+  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4VYS_C8FB0OLSLQlN0NAWm6SEAmd4tXS4FMJPBCWg6OX6yf8DwqS9on4WRHoOFn_eMN0&usqp=CAU',
+  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnNIQxwUp1qo5roxFB3EDmj6lh_WkYE_uIbg&s',
+  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmP5mo45Vhw0M9OM6fiXDdl9MRCedlCNZv4Q&s',
+  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUOZuTn-oUFcXhQZyvVswlx4HLDTclgdH5aKHMZA68Xhk12mX1BvX80ZVQrvQj6Nb48n0&usqp=CAU',
+  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQetCoFfFfJrtCjSAcSKlCvO0sUM2EQMz5kiA&s',
+  'https://rukminim2.flixcart.com/image/704/844/xif0q/poster/2/z/r/medium-baki-hanma-poster-12-x-18-premium-photo-paper-glossy-original-imagqjwwm5hahz4g.jpeg?q=90&crop=false',
 ];
 
 export default function Profiles() {
