@@ -43,23 +43,23 @@ export const TopBar = ({ onSearch }: TopBarProps) => {
   };
 
   return (
-    <header className="flex items-center justify-between px-6 py-4 bg-background/95 backdrop-blur-md border-b border-border">
-      <div className="flex items-center space-x-4">
-        <h1 className="text-2xl font-bold hidden md:block">Welcome back, {currentProfile.name || 'User'}</h1>
+    <header className="flex items-center justify-between px-4 sm:px-6 py-4 bg-background/98 backdrop-blur-xl border-b border-border/50 shadow-lg">
+      <div className="flex items-center space-x-4 animate-slide-in">
+        <h1 className="text-lg sm:text-xl md:text-2xl font-bold hidden sm:block text-foreground">Welcome back, {currentProfile.name || 'User'}</h1>
       </div>
 
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-2 sm:space-x-4">
         {/* Search */}
         {isSearchOpen ? (
           <form onSubmit={handleSearch} className="animate-scale-in">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <div className="relative group">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground group-focus-within:text-primary transition-colors" />
               <Input
                 type="text"
-                placeholder="Search movies and series..."
+                placeholder="Search movies, series, music..."
                 value={searchQuery}
                 onChange={handleInputChange}
-                className="pl-10 w-64 bg-card border-border focus:ring-2 focus:ring-primary"
+                className="pl-10 w-48 sm:w-64 bg-card/50 border-border/50 focus:bg-card focus:border-primary/50 hover:border-primary/30 transition-all duration-300 backdrop-blur-sm"
                 autoFocus
                 onBlur={() => {
                   if (!searchQuery) setIsSearchOpen(false);
@@ -72,24 +72,25 @@ export const TopBar = ({ onSearch }: TopBarProps) => {
             variant="ghost"
             size="sm"
             onClick={() => setIsSearchOpen(true)}
-            className="text-muted-foreground hover:text-foreground"
+            className="text-muted-foreground hover:text-foreground hover-scale"
           >
-            <Search className="h-5 w-5" />
+            <Search className="h-4 w-4 sm:h-5 sm:w-5" />
           </Button>
         )}
 
         {/* Profile */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" size="sm" className="p-0">
+            <Button variant="ghost" size="sm" className="p-0 hover-scale relative overflow-hidden">
               <img 
                 src={currentProfile.avatar_url || profileIcon} 
                 alt="Profile" 
-                className="h-8 w-8 rounded-full border border-border" 
+                className="h-8 w-8 sm:h-10 sm:w-10 rounded-full ring-2 ring-transparent hover:ring-primary/50 transition-all duration-300" 
               />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-56">
+          <DropdownMenuContent align="end" className="w-56 bg-card/95 backdrop-blur-xl border-border/50">
             <div className="flex items-center space-x-2 p-2">
               <img 
                 src={currentProfile.avatar_url || profileIcon} 

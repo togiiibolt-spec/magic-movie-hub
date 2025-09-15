@@ -39,8 +39,8 @@ export const ContentRow = ({ title, content, onPlay, onDetails }: ContentRowProp
   };
 
   return (
-    <div className="px-6 py-8">
-      <h2 className="text-2xl font-bold mb-6 text-foreground">{title}</h2>
+    <div className="px-4 sm:px-6 py-6 sm:py-8 animate-slide-up">
+      <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-foreground">{title}</h2>
       
       <div className="relative group">
         {/* Left Arrow */}
@@ -48,9 +48,9 @@ export const ContentRow = ({ title, content, onPlay, onDetails }: ContentRowProp
           variant="ghost"
           size="sm"
           onClick={() => scroll('left')}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-background/80 hover:bg-background backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity h-full rounded-none"
+          className="absolute left-0 sm:left-2 top-1/2 -translate-y-1/2 z-10 h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-background/80 hover:bg-background/95 backdrop-blur-sm border border-border/50 hover:border-border opacity-0 group-hover:opacity-100 transition-all duration-300 hover-lift hidden sm:flex"
         >
-          <ChevronLeft className="h-6 w-6" />
+          <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
         </Button>
 
         {/* Right Arrow */}
@@ -58,34 +58,38 @@ export const ContentRow = ({ title, content, onPlay, onDetails }: ContentRowProp
           variant="ghost"
           size="sm"
           onClick={() => scroll('right')}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-background/80 hover:bg-background backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity h-full rounded-none"
+          className="absolute right-0 sm:right-2 top-1/2 -translate-y-1/2 z-10 h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-background/80 hover:bg-background/95 backdrop-blur-sm border border-border/50 hover:border-border opacity-0 group-hover:opacity-100 transition-all duration-300 hover-lift hidden sm:flex"
         >
-          <ChevronRight className="h-6 w-6" />
+          <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
         </Button>
 
         {/* Content Container */}
         <div 
           ref={scrollContainerRef}
-          className="flex space-x-4 overflow-x-auto scrollbar-hide pb-4"
+          className="flex space-x-3 sm:space-x-4 overflow-x-auto scrollbar-hide pb-4 scroll-smooth"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-          {content.map((item) => (
+          {content.map((item, index) => (
             <div
               key={item.id}
-              className="flex-shrink-0 w-48 cursor-pointer group/item"
+              className="flex-shrink-0 w-36 sm:w-48 cursor-pointer group/item animate-fade-in hover-lift"
               onMouseEnter={() => setHoveredItem(item.id)}
               onMouseLeave={() => setHoveredItem(null)}
               onClick={() => onDetails(item)}
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="relative overflow-hidden rounded-lg bg-card shadow-card group-hover/item:scale-105 transition-all duration-300">
+              <div className="relative overflow-hidden rounded-xl bg-card border border-border/50 shadow-card group-hover/item:border-primary/50 transition-all duration-500 hover-glow">
                 <img
                   src={item.poster}
                   alt={item.title}
-                  className="w-full h-72 object-cover"
+                  className="w-full h-48 sm:h-72 object-cover transition-transform duration-500 group-hover/item:scale-110"
                 />
                 
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+                
                 {/* Action Buttons */}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover/item:opacity-100 transition-all duration-300 flex items-end p-4">
+                <div className="absolute inset-0 bg-background/80 backdrop-blur-sm opacity-0 group-hover/item:opacity-100 transition-all duration-300 flex items-center justify-center">
                   <div className="flex space-x-2">
                     <Button
                       size="sm"
@@ -93,21 +97,21 @@ export const ContentRow = ({ title, content, onPlay, onDetails }: ContentRowProp
                         e.stopPropagation();
                         onPlay(item, item.type === 'series' ? (item as Series).episodes?.[0] : undefined);
                       }}
-                      className="bg-white text-black hover:bg-white/90 h-8 w-8 p-0"
+                      className="bg-primary text-primary-foreground hover:bg-primary/90 h-8 w-8 sm:h-10 sm:w-10 p-0 hover-scale"
                     >
-                      <Play className="h-4 w-4 fill-current" />
+                      <Play className="h-3 w-3 sm:h-4 sm:w-4 fill-current" />
                     </Button>
                     
                     <Button
                       variant="outline"
                       size="sm"
                       onClick={(e) => handleWishlistToggle(item, e)}
-                      className="bg-transparent border-white text-white hover:bg-white/20 h-8 w-8 p-0"
+                      className="bg-background/50 border-border hover:bg-background/80 backdrop-blur-sm h-8 w-8 sm:h-10 sm:w-10 p-0 hover-scale"
                     >
                       {isInWishlist(item.id) ? (
-                        <Check className="h-4 w-4" />
+                        <Check className="h-3 w-3 sm:h-4 sm:w-4 text-primary" />
                       ) : (
-                        <Plus className="h-4 w-4" />
+                        <Plus className="h-3 w-3 sm:h-4 sm:w-4" />
                       )}
                     </Button>
                     
@@ -118,24 +122,24 @@ export const ContentRow = ({ title, content, onPlay, onDetails }: ContentRowProp
                         e.stopPropagation();
                         onDetails(item);
                       }}
-                      className="bg-transparent border-white text-white hover:bg-white/20 h-8 w-8 p-0"
+                      className="bg-background/50 border-border hover:bg-background/80 backdrop-blur-sm h-8 w-8 sm:h-10 sm:w-10 p-0 hover-scale"
                     >
-                      <Info className="h-4 w-4" />
+                      <Info className="h-3 w-3 sm:h-4 sm:w-4" />
                     </Button>
                   </div>
                 </div>
 
                 {/* Content Badge */}
                 <div className="absolute top-2 left-2">
-                  <span className="bg-background/90 text-foreground px-2 py-1 rounded text-xs font-medium">
+                  <span className="bg-background/95 text-foreground px-2 py-1 rounded-lg text-xs font-medium backdrop-blur-sm border border-border/50">
                     {item.type === 'movie' ? 'Movie' : 'Series'}
                   </span>
                 </div>
               </div>
 
               {/* Content Info */}
-              <div className="mt-2 space-y-1">
-                <h3 className="font-medium text-sm leading-tight line-clamp-2">{item.title}</h3>
+              <div className="mt-3 space-y-1">
+                <h3 className="font-medium text-xs sm:text-sm leading-tight line-clamp-2 text-foreground">{item.title}</h3>
                 <div className="flex items-center space-x-1 text-xs text-muted-foreground">
                   <span>{item.year}</span>
                   <span>•</span>

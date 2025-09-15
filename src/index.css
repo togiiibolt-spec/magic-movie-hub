@@ -6,50 +6,53 @@
 
 @layer base {
   :root {
-    /* Disney+ Dark Theme */
-    --background: 230 15% 7%;
-    --foreground: 0 0% 95%;
+    /* Modern Dark Streaming Platform */
+    --background: 210 17% 3%;
+    --foreground: 210 5% 98%;
 
-    --card: 230 15% 9%;
-    --card-foreground: 0 0% 95%;
+    --card: 215 25% 6%;
+    --card-foreground: 210 5% 98%;
+    --card-hover: 215 25% 10%;
 
-    --popover: 230 15% 9%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 215 25% 6%;
+    --popover-foreground: 210 5% 98%;
 
-    --primary: 214 100% 50%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 14 85% 55%;
+    --primary-foreground: 210 5% 98%;
 
-    --secondary: 230 15% 12%;
-    --secondary-foreground: 0 0% 90%;
+    --secondary: 215 25% 10%;
+    --secondary-foreground: 210 5% 88%;
 
-    --muted: 230 15% 12%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 215 25% 10%;
+    --muted-foreground: 215 10% 68%;
 
-    --accent: 214 100% 50%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 14 85% 55%;
+    --accent-foreground: 210 5% 98%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 80% 60%;
+    --destructive-foreground: 210 5% 98%;
 
-    --border: 230 15% 15%;
-    --input: 230 15% 15%;
-    --ring: 214 100% 50%;
+    --border: 215 25% 12%;
+    --input: 215 25% 12%;
+    --ring: 14 85% 55%;
 
-    --radius: 8px;
+    --radius: 12px;
 
-    /* Disney+ Specific Colors */
-    --disney-blue: 214 100% 50%;
-    --disney-gradient: linear-gradient(135deg, hsl(214 100% 50%), hsl(250 100% 60%));
-    --hero-gradient: linear-gradient(180deg, transparent 0%, hsl(230 15% 7%) 70%);
-    --card-hover: 230 15% 15%;
+    /* Streaming Platform Colors */
+    --disney-blue: 14 85% 55%;
+    --disney-gradient: linear-gradient(135deg, hsl(14, 85%, 55%), hsl(340, 75%, 55%));
+    --hero-gradient: linear-gradient(180deg, transparent 0%, hsl(210, 17%, 3%) 70%);
+    --content-gradient: linear-gradient(90deg, hsl(210, 17%, 3%) 0%, transparent 50%, hsl(210, 17%, 3%) 100%);
     
-    /* Shadows */
-    --shadow-card: 0 4px 12px -4px hsl(230 15% 3% / 0.3);
-    --shadow-modal: 0 25px 50px -12px hsl(230 15% 3% / 0.5);
+    /* Enhanced Modern Shadows */
+    --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.3), 0 0 0 1px hsl(var(--border));
+    --shadow-modal: 0 25px 50px -12px hsl(0 0% 0% / 0.6), 0 0 0 1px hsl(var(--border));
+    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.3);
     
-    /* Transitions */
+    /* Professional Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-elastic: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     --radius: 8px;
 
@@ -137,15 +140,15 @@
     background: hsl(var(--muted-foreground));
   }
 
-  /* Animations */
+  /* Modern Professional Animations */
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
   @keyframes slideIn {
-    from { transform: translateX(-100%); }
-    to { transform: translateX(0); }
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
   }
 
   @keyframes scaleIn {
@@ -153,16 +156,72 @@
     to { transform: scale(1); opacity: 1; }
   }
 
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes floatIn {
+    from { opacity: 0; transform: translateY(40px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -468px 0; }
+    100% { background-position: 468px 0; }
+  }
+
   .animate-fade-in {
     animation: fadeIn 0.6s ease-out;
   }
 
   .animate-slide-in {
-    animation: slideIn 0.4s ease-out;
+    animation: slideIn 0.6s ease-out;
   }
 
   .animate-scale-in {
-    animation: scaleIn 0.3s ease-out;
+    animation: scaleIn 0.4s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.7s ease-out;
+  }
+
+  .animate-float-in {
+    animation: floatIn 0.8s ease-out;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s infinite linear;
+    background: linear-gradient(to right, transparent 0%, hsl(var(--muted)) 50%, transparent 100%);
+    background-size: 468px 100%;
+  }
+
+  /* Enhanced Hover Effects */
+  .hover-glow {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+  }
+
+  .hover-scale {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
   }
 
   .scrollbar-hide {
